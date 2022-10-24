@@ -12,7 +12,8 @@ class Client:
         "gyroEWMAEnergyDerivative": "/dm/gyroewmaderiv",
         "gyroEnergyDerivative": "/dm/gyroewmaderiv",
         "gyroEWMAEnergy":"/dm/gyroewma",
-        "gyroEWMAOfEWMADerivative": "/dm/gyroewmaderivewma"}
+        "gyroEWMAOfEWMADerivative": "/dm/gyroewmaderivewma",
+        "entropy": "/dm/entropy"}
     
     def setClient(ip, port):
         Client.client = SimpleUDPClient(ip, port) 

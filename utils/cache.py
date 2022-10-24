@@ -17,6 +17,10 @@ Cache = {
         "previous": 0,
         "current": 0
       },
+      "mediapipe":{
+        "landmarksCache": [],
+        "cacheSize": 3
+      },
       "gyroEnergyDeriv": {
         "alpha": 0.1,
         "oldGyroEnergyValue": 0,

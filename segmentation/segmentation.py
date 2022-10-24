@@ -36,6 +36,20 @@ def rescaleEntry(name, x, zero, scale):
     else:
         return x
 
+def rescaleArray(x):
+    noseIndex = index_from_landmark['left_eye_outer']
+    leftEyeIndex = index_from_landmark['left_eye_outer']
+    rightEyeIndex = index_from_landmark['right_eye_outer']
+    nose = np.array([coord for i, coord in enumerate(x) if (i < (3*(noseIndex + 1)) and i>=(3*noseIndex))])
+    leftEye = np.array([coord for i, coord in enumerate(x) if (i < (3*(leftEyeIndex + 1)) and i>=(3*leftEyeIndex))])
+    rightEye = np.array([coord for i, coord in enumerate(x) if (i < (3*(rightEyeIndex + 1)) and i>=(3*rightEyeIndex))])
+    scale = np.linalg.norm(leftEye - rightEye)
+    return np.array([rescaleEntry(landmarks[int(i/3)], coord, nose, scale) 
+        for i, coord 
+        in enumerate(x)
+        if (i >= (3*(noseIndex + 1)) or i<(3*noseIndex))])
+
+
 def rescale(x):
     ## nose is 0
     nose = np.array([coord for name, coord in x.items() if name[1:] == str(index_from_landmark['nose'])])
@@ -81,9 +95,15 @@ def generateDataFromAnnotation(df, anno, batch_size=4, timeToFrame=kdenLiveTimeT
     return np.vstack(tuple(result.values()))
 
 
-def loadData(fileName = "MariaMovementSequence_xyz_27Sept", fps=15):
+def loadData(fileName = "MariaMovementSequence_xyz_27Sept", fps=15, fromRoot=True):
+    filename = ''
+    if fromRoot:
+        filename = os.path.join("data", "csv", fileName + ".csv")
+    else:
+        filename = os.path.join("..","data", "csv", fileName + ".csv")
+        
     df = pd.read_csv(
-        os.path.join("..","data", "csv", fileName + ".csv"), 
+        filename, 
         header=0,
         index_col=0)
     df["time"] = 1000 * df.index / fps

@@ -5,18 +5,20 @@ from config.db_config import DBCONFIG
 from utils.math import euclidean
 from osc.client import Client
 from utils.cache import Cache
+
 # from sqlalchemy import create_engine
 # from sqlalchemy import update
 from sqlalchemy.orm import sessionmaker
 # from db.base import Base
 # from db.timeDifference import TimeDifference
 # from db.dmxUniverse import DMXUniverse
-from utils.mediapipe import MediaPipe
+from utils.mediapipe import MediaPipe, FullBodyPoseEmbedder
 # from utils.mobile import calculateMobileEnergy
 from osc.client import Client
 import pandas as pd
 import numpy as np
 import asyncio
+
 # from utils.conversion import datetimeToMicroseconds 
 from db.initialize import (
     initTimedifferences,
@@ -25,6 +27,8 @@ from db.initialize import (
     rememberThisRecordingSession)
 # from datetime import datetime, timedelta
 from db.utils import setNewTimes
+
+from segmentation.trainModel import Model
 
 
 CONFIG.loadMyIP()
@@ -67,6 +71,14 @@ def start_video_capture(address, *args):
             rememberThisRecordingSession(session)
             session.close()
     MediaPipe.startCapture(0)
+    ## initialize the cache length
+    emb = FullBodyPoseEmbedder()
+    nose_normalized_lms = [lm for lm in emb._landmark_names if lm!='nose']
+    Cache["mediapipe"]["landmarksCache"] = np.ndarray((0, 3 * len(nose_normalized_lms)))
+    ## TODO: Training should be already done, here we do it now (NEVER HARDCODE FILENAME)
+    
+    Model.setGMM(fileName="MariaMovementSequence_xyz_27Sept", batch_size=Cache["mediapipe"]["cacheSize"])
+    ## figure out wether landmarks should be drawn
     landmarkflag = args[1]==1
     MediaPipe.handleCapture(with_drawing_landmarks=landmarkflag)
 
@@ -121,6 +133,9 @@ def change_parameter(address, *args):
     if args[0]=='alpha_gyro':
         Cache["gyroEnergy"]["alpha"] = args[1]
 
+def get_entropy_and_likely_gesture_type(address, *args):
+    return 0
+
 
 def default_handler(address, *args):
     print(f"DEFAULT {address}: {args}")
@@ -153,6 +168,9 @@ dispatcher.map("/printClientInfo", print_client_port_and_address)
 dispatcher.map("/startDbWrting", start_writing_to_db)
 dispatcher.map("/stopDbWrting", stop_writing_to_db)
 dispatcher.map("/changeParameter", change_parameter)
+dispatcher.map("/getEntropyAndLikelyGestureType", change_parameter)
+
+
 # dispatcher.map("/velocity", )
 
 dispatcher.set_default_handler(default_handler)

@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 import cv2
 import mediapipe as mp
 import numpy as np
+import scipy
 from config.db_config import DBCONFIG
 from sqlalchemy.orm import sessionmaker
 from db.session import RecordingSession
@@ -11,6 +12,8 @@ from config.server_config import CONFIG
 from utils.conversion import datetimeToMicroseconds
 
 
+import segmentation.segmentation as sg
+from segmentation.trainModel import Model
 from db.gyro import Gyro
 from db.pose import MediapipePose
 # from db.gyroTest import GyroTest3
@@ -208,6 +211,19 @@ class MediaPipe:
             try:
                 # newData = {emb._landmark_names[j] + "_" + coord: lm.__getattribute__(coord)  for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y"]}
                 landmarks = emb._convert_to_numpy(results.pose_landmarks)
+                # cache landmarks
+                
+                # delete first entry
+                rescaled = sg.rescaleArray(landmarks.flatten())
+                if len(Cache["mediapipe"]["landmarksCache"])!=0:
+                  Cache["mediapipe"]["landmarksCache"] = np.vstack((Cache["mediapipe"]["landmarksCache"], rescaled))
+                  if len(Cache["mediapipe"]["landmarksCache"]) > Cache["mediapipe"]["cacheSize"]:
+                    Cache["mediapipe"]["landmarksCache"] = np.delete(Cache["mediapipe"]["landmarksCache"], 0, axis=0)
+                else:
+                  Cache["mediapipe"]["landmarksCache"] = np.array([rescaled])
+
+                  
+                # print(Cache["mediapipe"]["landmarksCache"])
                 center = emb._get_pose_center(landmarks)
                 size = emb._get_pose_size(landmarks, emb._torso_size_multiplier)
                 Cache["size"]["previous"] = Cache["size"]["current"]
@@ -246,6 +262,15 @@ class MediaPipe:
                   D=Cache["SIGMOID_MAX"]), M=Cache["MIDI_MAX"]))
 
                 if not CONFIG.ONLY_RECEIVE:
+
+                  probs = Model.gmm.predict_proba(np.array([Cache["mediapipe"]["landmarksCache"].flatten()]))
+                  entropies = [scipy.stats.entropy(p) for p in probs]
+                
+                  Client.client.send_message(
+                    Client.address["entropy"], 
+                    entropies[0]
+                  )
+
                   Client.client.send_message(
                     Client.address["energy"], 
                     rescaledSize
