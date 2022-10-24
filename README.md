@@ -1,4 +1,34 @@
-# MediaPipe
+# /THORB/ (working name)
+
+Usage
+
+1. Go to repository's root folder
+
+2. run `python index.py` (IP and OSC )
+
+3. `sendosc [IP] [PORT] /printClientInfo
+
+4. Start video capture:
+   
+   `/startVideoCapture i 1 i 1`
+
+5. `/stopVideoCapture`
+
+6. `/startServer`
+
+7. `/stopServer`
+
+8. 
+
+
+
+### Gaussian mixture model (gmm)
+
+MediaPipe in 'pose' mode yields 32 landmarks, each witgh three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total). 
+
+
+
+# Virtual Envieronment
 
 This document describes the process of setting up a virtual environment (inside a repo) to run the MediaPipe for python.
 
@@ -104,7 +134,9 @@ python3
 >>> exit()
 ```
 
-Troubleshooting
+
+
+### Troubleshooting *Mediapipe*
 
 I encountered an error when attempting to install **mediapipe** that seems to have to do with my python version...
 
@@ -148,8 +180,6 @@ I'll try installing MediaPipe fro MacOs first, according to these instructions:
 
 [MediaPipe#installing-on-macos](https://google.github.io/mediapipe/getting_started/install.html#installing-on-macos)
 
-
-
 ```python
 pip install -r requirements.txt
 ```
@@ -172,21 +202,15 @@ Using a different terminal window, one can start/stop and configure different se
 
 ``sendosc [Client IPadress] [Client port] /Command [optional: i 1]``
 
-
-
 #### Start Capture
 
 Value *1* enables video on screen. Zero disables it.
 
 `sendosc [Client IP] [Client PORT] /startCapture i [1/0]`
 
-
-
 #### Change Client
 
 `sendosc [Client IP] [Client PORT] /changeClient s [new IP] i [new PORT]`
-
-
 
 ### How to find out my local python architecture (32/64 bits)
 
