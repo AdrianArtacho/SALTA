@@ -47,7 +47,7 @@ session.close()
 Client.setClient(CONFIG.clientIP, CONFIG.clientPort)
 
 if CONFIG.verbosity>1:
-    print(CONFIG.myHostName, CONFIG.myIP, CONFIG.ONLY_RECEIVE)
+    print("Hostname: ", CONFIG.myHostName, "\nIP: ", CONFIG.myIP, "\nPort: ", CONFIG.serverPort, "\nLocal Testing?: ", CONFIG.ONLY_RECEIVE)
 
 def print_client_port_and_address(address, *args):
     print("The ip address is {adr} and the port is {port}".format(adr=Client.client._address, port=Client.client._port))
@@ -77,6 +77,7 @@ def start_video_capture(address, *args):
     Cache["mediapipe"]["landmarksCache"] = np.ndarray((0, 3 * len(nose_normalized_lms)))
     ## TODO: Training should be already done, here we do it now (NEVER HARDCODE FILENAME)
     
+    print("Batch size is ", Cache["mediapipe"]["cacheSize"])
     Model.setGMM(fileName="MariaMovementSequence_xyz_27Sept", batch_size=Cache["mediapipe"]["cacheSize"])
     ## figure out wether landmarks should be drawn
     landmarkflag = args[1]==1

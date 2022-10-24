@@ -263,9 +263,16 @@ class MediaPipe:
 
                 if not CONFIG.ONLY_RECEIVE:
 
-                  probs = Model.gmm.predict_proba(np.array([Cache["mediapipe"]["landmarksCache"].flatten()]))
+                  # entropies = [0]
+                  # cache = Cache["mediapipe"]["landmarksCache"]
+                  # print('cache:', cache)
+                  input_data = np.array([Cache["mediapipe"]["landmarksCache"].flatten()])
+                  # print('inputdata.length ', len(input_data[0]))
+                  probs = Model.gmm.predict_proba(input_data)
                   entropies = [scipy.stats.entropy(p) for p in probs]
-                
+                  # if k%20==1:
+                  print('probabilities', probs)
+
                   Client.client.send_message(
                     Client.address["entropy"], 
                     entropies[0]
@@ -315,7 +322,7 @@ class MediaPipe:
                   session.close()
                   
 
-                if k%40==1:
+                if k%40==1 and False:
                   # print(Cache["center"]["current"])
                   # print(Cache["center"]["previous"])
                   # print(timeDifference)

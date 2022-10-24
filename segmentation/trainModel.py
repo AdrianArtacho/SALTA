@@ -32,6 +32,7 @@ class Model:
         df_rescaled = sg.rescaleDf(df)
         print('--> Landmarks have been recentered around the nose and rescaled by the distance between the eyes.')
         # ## get datapoints from annotations
+        print('batch size before generating result', batch_size)
         result = sg.generateDataFromAnnotation(
             df=df_rescaled,
             anno=anno,
@@ -40,5 +41,6 @@ class Model:
             asDict=asDict)
         
         print('--> Start training.')
+        print('dimensions of result: ', result.shape )
         Model.gmm = GaussianMixture(n_components=len(Annotations.keys()), random_state=0).fit(result)
 

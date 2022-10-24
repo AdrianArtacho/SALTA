@@ -75,6 +75,7 @@ def rescaleDf(df):
 
 
 def generateDataFromAnnotation(df, anno, batch_size=4, timeToFrame=kdenLiveTimeToFrame, asDict=True):
+    # print('Batch size inside the annotations', batch_size)
     result = dict()
     onlyCoordinateColumns = [c for c in df.columns if c[0] in ['x', 'y', 'z']]
     for name, speclist in anno.items():
@@ -87,9 +88,15 @@ def generateDataFromAnnotation(df, anno, batch_size=4, timeToFrame=kdenLiveTimeT
             if till < fr:
                 continue
             for i in range(fr, till + 1):
-                dat = df.loc[(fr + i):(fr + i + batch_size), onlyCoordinateColumns]
+                # print('out of curiosity, whats the length of this', len(list(range((fr + i),(fr + i + batch_size)))))
+                indices = range((fr + i),(fr + i + batch_size))
+                dat = df.loc[indices, onlyCoordinateColumns]
+                # print('size of dataframe', dat.shape)
+                # print('length of data entry', len(dat.to_numpy().flatten()))
                 result_list.append(dat.to_numpy().flatten())
+        # print('length of the result list', len(result_list))
         result[name] = np.array(result_list)
+
     if asDict:
         return result
     return np.vstack(tuple(result.values()))
