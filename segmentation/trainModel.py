@@ -23,7 +23,6 @@ class Model:
     # def __init__(self):
     #     self.gmm = None
 
-
     def setGMM(fileName, anno=Annotations, fps=15, batch_size=3, timeToFrame=sg.kdenLiveTimeToFrame, asDict=False):
         ## Load dataframe from file
         df = sg.loadData(fileName=fileName, fps=fps)
