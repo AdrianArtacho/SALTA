@@ -1,6 +1,9 @@
 import numpy as np
 import pandas as pd
 import os
+import re
+from parseannotations import parseannotations2 as pa
+from utils import retrieveVideo as rV
 
 
 landmarks = [
@@ -72,6 +75,43 @@ def rescaleDf(df):
     for i, row in df.iterrows():
         df_rescaled_list.append(rescale(row))
     return pd.DataFrame(df_rescaled_list).drop(["x0_rescaled", "y0_rescaled", "z0_rescaled"], axis=1)
+
+
+def filterDf(df, mch_output):
+
+    # return dataframe only relevant columns:
+    badIndices = [i for i, lm in enumerate(landmarks) if lm not in mch_output]
+    # print('baddies', badIndices)
+    containsNumber = re.compile('[0-9]+')
+    badColumns = []
+    for col in df.columns:
+        numbers = containsNumber.findall(col)
+        # print(numbers)
+        if len(numbers)>0:
+            if int(numbers[0]) in badIndices:
+                badColumns.append(col)
+    # print(badColumns)
+    return df.drop(badColumns, axis=1, inplace=False)
+
+def generateTrainingDataFromPieceMaker(df, annotations, batch_size):
+    # trainingData = np.ndarray((0,len(df.columns) - 1))
+    trainingData = list()
+    for a in annotations.values():
+        # print('annotation', a)
+        # relevant times 
+        subDf = df[(df.time>=a["from"]) & (df.time<=a["till"])]
+        subDf_temp = subDf.drop(["time"], axis=1, inplace=False)
+
+        for wnd in subDf_temp.rolling(batch_size):
+            data = wnd.values.flatten()
+            print('data', data)
+            print('length of data', len(data), '\n3batchsize', 3*batch_size)
+            if len(data) != (subDf_temp.shape[1] * batch_size):
+                continue
+            trainingData.append(data)
+    ret = np.array(trainingData)
+    # print('ret', ret)
+    return ret
 
 
 def generateDataFromAnnotation(df, anno, batch_size=4, timeToFrame=kdenLiveTimeToFrame, asDict=True):

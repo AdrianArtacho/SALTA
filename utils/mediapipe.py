@@ -1,7 +1,9 @@
 from datetime import datetime, timedelta
 import cv2
+import pafy 
 import mediapipe as mp
 import numpy as np
+import pandas as pd
 import scipy
 from config.db_config import DBCONFIG
 from sqlalchemy.orm import sessionmaker
@@ -10,6 +12,9 @@ from osc.client import Client
 from utils.math import distance, sigmoid, rescale, euclidean
 from config.server_config import CONFIG
 from utils.conversion import datetimeToMicroseconds
+from parseannotations import parseannotations2 as pa
+from parseannotations import landmarks_mp
+from utils import retrieveVideo as rV
 
 
 import segmentation.segmentation as sg
@@ -25,6 +30,7 @@ mp_drawing_styles = mp.solutions.drawing_styles
 mp_pose = mp.solutions.pose
 
 
+
 class MediaPipe:
 
     pose = mp_pose.Pose(
@@ -33,6 +39,7 @@ class MediaPipe:
     
     cap: cv2.VideoCapture
 
+    
     def startCapture(*args):
         Cache["SHOW_WINDOW"] = (args[0]==1)
         if Cache["SHOW_WINDOW"]:
@@ -346,6 +353,146 @@ class MediaPipe:
             #   break
 
     
+def getFrameRate(video, verbose=False):
+  (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
+  # With webcam get(CV_CAP_PROP_FPS) does not work.
+  # Let's see for ourselves.
+
+  if int(major_ver)  < 3 :
+      fps = video.get(cv2.cv.CV_CAP_PROP_FPS)
+      if verbose:
+        print("Frames per second using video.get(cv2.cv.CV_CAP_PROP_FPS): {0}".format(fps))
+  else :
+      fps = video.get(cv2.CAP_PROP_FPS)
+      if verbose:
+        print("Frames per second using video.get(cv2.CAP_PROP_FPS) : {0}".format(fps))
+  
+  return fps
+
+
+class LandmarksRetrieval:
+
+
+  def getFilteredDataFrame(self, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
+
+    # retrieve URL of youtube video and annotation dict from raw motion bank path
+    url, parseddict = pa.parseCSV(rawMotionBankCSVPath)
+    # convert url into cv2 readable input
+    videoURL = rV.retrieveVideo(url=url)
+
+
+    # run the landmark multiple choice filter
+    mch_output =  landmarks_mp.chooselandmarks()
+  
+    # run cv2 from the video to retrieve landmarks
+    if fromRoot:
+        lm_path = os.path.join("data", "csv", landmarkFileName + ".csv")
+        lm_path_filtered = os.path.join("data", "csv", landmarkFileName + "_filtered_" + "_".join(mch_output) + ".csv")
+    else:
+        lm_path = os.path.join("..","data", "csv", landmarkFileName + ".csv")
+        lm_path_filtered = os.path.join("..","data", "csv", landmarkFileName + "_filtered" + "_".join(mch_output) + ".csv")
+       
+   
+    if fromCache:
+      df = pd.read_csv(lm_path, header=0, index_col=0)
+    else:
+      df = self.createLandmarks(videoURL, landmarkFileName, fromWebCam=False, fromRoot=fromRoot)
+
+    
+    # rescale df
+    df_rescaled = sg.rescaleDf(df)
+    # select relevant columns in df
+    df_filtered = sg.filterDf(df=df_rescaled, mch_output=mch_output)
+
+
+    df_filtered.to_csv(lm_path_filtered)
+  
+    return df_filtered, parseddict
+    
+
+  def generateDataFromPieceMaker(self, batch_size, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
+
+
+    df_filtered, parseddict = self.getFilteredDataFrame(rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
+
+    # get the training data
+    result = sg.generateTrainingDataFromPieceMaker(
+            df=df_filtered,
+            annotations=parseddict,
+            batch_size=batch_size)
+
+    # show data
+    return result
+
+
+
+  def createLandmarks(self, url, landmarkFileName, fromWebCam=False, fromRoot=False):
+    
+    PoseData = []
+    cap = cv2.VideoCapture(url)
+    # cap = cv2.VideoCapture(os.path.join('..', datadirectory, 'MariaDancingSequenceAnotherOne.webm'))
+    i = 0
+    # MaxRecordings = 10
+    pose = mp_pose.Pose(
+        min_detection_confidence=0.5,
+        min_tracking_confidence=0.5)  # as pose:
+
+    fps = getFrameRate(video=cap)
+    oldTime = 0
+    while cap.isOpened():
+      
+      i += 1
+      
+      success, image = cap.read()
+      if not success:
+        print("Ignoring empty frame.")
+        # If loading a video, use 'break' instead of 'continue'.
+        break
+
+      try: # findPose:
+      # Draw the pose annotation on the image.
+        image.flags.writeable = True
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        results = pose.process(image)
+        mp_drawing.draw_landmarks(
+            image,
+            results.pose_landmarks,
+            mp_pose.POSE_CONNECTIONS,
+            landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
+        
+        newData = {coord + str(j):lm.__getattribute__(coord)  for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y", "z"]}
+        
+        newData.update({'time': oldTime})
+        PoseData.append(newData)
+      
+      except Exception as ex:
+        newData = {coord + str(j):np.nan  for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y", "z"]}
+        newData.update({'time': oldTime})
+        PoseData.append(newData)
+
+        print('didnt work', ex)
+        # print(ex)
+      # update time
+      oldTime += 1/fps
+
+      # Flip the image horizontally for a selfie-view display.
+      if fromWebCam:
+        image = cv2.flip(image, 1)
+      cv2.imshow('MediaPipe Pose', image)
+      if (cv2.waitKey(5) & 0xFF == 27): ## or i>MaxRecording s :
+        break
+    cap.release()
+    df = pd.DataFrame(PoseData)
+
+    if fromRoot:
+        filename = os.path.join("data", "csv", landmarkFileName + ".csv")
+    else:
+        filename = os.path.join("..","data", "csv", landmarkFileName + ".csv")
+        
+    # df['fps'] = fps
+    df.to_csv(filename)
+    cv2.destroyAllWindows()
+    return df
 
 
 class FullBodyPoseEmbedder(object):

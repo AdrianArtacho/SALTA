@@ -1,6 +1,8 @@
 from sklearn.mixture import GaussianMixture
 import scipy
+import numpy as np
 import segmentation.segmentation as sg 
+import utils.mediapipe as mp
 
 Annotations = {
     "hip_joint_right": [
@@ -43,3 +45,9 @@ class Model:
         print('dimensions of result: ', result.shape )
         Model.gmm = GaussianMixture(n_components=len(Annotations.keys()), random_state=0).fit(result)
 
+
+    def fitModelFromMotionBank(batch_size, n_components, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
+        # for rawMotionBankCSVPath in rawMotionBankCSVPaths:
+        lR = mp.LandmarksRetrieval()
+        result = lR.generateDataFromPieceMaker(batch_size=batch_size, rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
+        Model.gmm = GaussianMixture(n_components=n_components, random_state=0).fit(result)
