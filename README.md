@@ -10,6 +10,8 @@ This document describes the usage and troubleshooting of the /Orbis/ App. Other 
 
 [test anchor](#markdown-header-test)
 
+[Troubleshooting *Mediapipe*](#markdown-header-troubleshooting-mediapipe)
+
 
 
 ## Usage
