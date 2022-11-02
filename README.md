@@ -5,7 +5,7 @@ This document describes the usage and troubleshooting of the *Orbis* App. Other 
 - [Setting up a virtual environment](readme_venv.md)
 * [Communicating across modules using OSC](readme_osc.md) 
 
-* [Troubleshooting *Mediapipe*](readme_install.md)
+* [Install and troubleshoot](readme_install.md)
 
 ### Settings
 
