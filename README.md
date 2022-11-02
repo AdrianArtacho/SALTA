@@ -1,4 +1,4 @@
-# /Orbis/ (working name)
+# /ORBIS/ (working name)
 
 This document describes the usage and troubleshooting of the *Orbis* App. Other related documents are:
 
@@ -149,7 +149,7 @@ The easiest fix is to go into `.venv/liv.python... /site-packages/pafy/backend_
 What about this one?
 
 ```terminal
-
+FileNotFoundError: [Errno 2] No such file or directory: 'data/csv/testAgainMaria.csv'
 ```
 
 
@@ -167,8 +167,10 @@ Frontend little contributions:
 
 - browse and select file when python testLandMarks is run
 
-- 
+- fromCache flag
 
-# Contributors
+- rename 'testAgainMaria.csv' into something neutral
 
-Adrián Artacho, Leonhard Horstmeyer
+# Authors
+
+[Adrián Artacho](http://www.artacho.at/), [Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/)
