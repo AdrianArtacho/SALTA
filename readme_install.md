@@ -1,11 +1,11 @@
-# /Orbis/ (working name)
+# Troubleshooting
 
-This document describes the usage and troubleshooting of the *Orbis* App. Other related documents are:
+This document describes how to  of the *Orbis* App. Other related documents are:
 
 - [Setting up a virtual environment](readme_venv.md)
 * [Communicating across modules using OSC](readme_osc.md) 
 
-* [Troubleshooting *Mediapipe*](readme_install.md)
+* [Troubleshooting *Mediapipe*](#markdown-header-troubleshooting-mediapipe)
 
 ### Settings
 
