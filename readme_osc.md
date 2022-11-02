@@ -1,40 +1,4 @@
-# /Orbis/ (working name)
-
-This document describes the usage and troubleshooting of the /Orbis/ App. Other related documents are:
-
-[Setting up a virtual environment](readme_venv.md)
-
-[Communicating across modules using OSC](readme_osc.md) 
-
-[TOC](#markdown-header-To-Do)
-
-
-
-## Usage
-
-1. Go to repository's root folder
-
-2. run `python index.py` (IP and OSC )
-
-3. `sendosc [IP] [PORT] /printClientInfo
-
-4. Start video capture:
-   
-   `/startVideoCapture i 1 i 1`
-
-5. `/stopVideoCapture`
-
-6. `/startServer`
-
-7. `/stopServer`
-
-8. 
-
-### Gaussian mixture model (gmm)
-
-MediaPipe in 'pose' mode yields 32 landmarks, each witgh three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total). 
-
-### OSC in Python
+# OSC communication in python
 
 In order to send/receive OSC data (according to this online documentation: [python-osc · PyPI](https://pypi.org/project/python-osc/)).
 
@@ -46,16 +10,6 @@ If you want to run the server just execute:
 
 ```
 python index.py
-```
-
-### Using the python interpreter:
-
-```python
-# Enter the python interpreter
-python3
-
-# (leave the interpreter)
->>> exit()
 ```
 
 ### Troubleshooting *Mediapipe*
@@ -176,5 +130,3 @@ ____
 
 Adrian,
 Leo
-
-[dbafbsdf](readme_venv.md)
