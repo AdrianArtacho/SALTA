@@ -8,8 +8,6 @@ This document describes how to intall and troubleshoot the *Orbis* App. Click [h
 
 * [Troubleshooting *Pafy*](#markdown-header-troubleshooting-pafy)
 
-
-
 ### Settings
 
 The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
@@ -76,7 +74,7 @@ pip install -r requirements.txt
 python index.py
 ```
 
-### Troubleshooting *Pafy*
+
 
 
 

@@ -122,7 +122,39 @@ pip install -r requirements.txt
 python index.py
 ```
 
-# 
+### Troubleshooting...
+
+Errors related to the [pafy](https://pypi.org/project/pafy/) library.
+
+```terminal
+raise IOError(str(e).replace('YouTube said', 'Youtube says'))
+OSError: ERROR: Unable to download API page: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1045)> (caused by URLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1045)')))
+```
+
+  other issue...
+
+```terminal
+self._likes = self._ydl_info['like_count']
+KeyError: 'like_count'
+```
+
+The easiest fix is to go into `.venv/liv.python... /site-packages/pafy/backend_youtube_dl.py` and comment out this line
+
+```
+#self._dislikes = self._ydl_info['dislike_count']
+```
+
+
+
+What about this one?
+
+```terminal
+
+```
+
+
+
+
 
 ____
 
@@ -130,7 +162,12 @@ ____
 
 - Adapt to the Effects format
 - have the csv pulled directly from Motion Bank (API)
-- Frontend
+
+Frontend little contributions:
+
+- browse and select file when python testLandMarks is run
+
+- 
 
 # Contributors
 
