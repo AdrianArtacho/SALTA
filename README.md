@@ -144,17 +144,11 @@ The easiest fix is to go into `.venv/liv.python... /site-packages/pafy/backend_
 #self._dislikes = self._ydl_info['dislike_count']
 ```
 
-
-
 What about this one?
 
 ```terminal
 FileNotFoundError: [Errno 2] No such file or directory: 'data/csv/testAgainMaria.csv'
 ```
-
-
-
-
 
 ____
 

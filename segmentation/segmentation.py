@@ -30,6 +30,12 @@ index_from_landmark = {name: i for i,name in enumerate(landmarks)}
 
 
 def rescaleEntry(name, x, zero, scale):
+    """
+    name is the name of the column where the coordinate was extrated from (X0_rescaled, etc.)
+    x is a coordinate (either x, y, z), 
+    zero is the 3-dimensional point at the center (could be any ppoint, such as the nose)
+    scale is a normalising factor
+    """
     if name.startswith('x'):
         return (x - zero[0]) / scale
     elif name.startswith('y'):
@@ -40,14 +46,27 @@ def rescaleEntry(name, x, zero, scale):
         return x
 
 def rescaleArray(x):
+    """
+    x is one entire data array of landmark coordinates (3 values per landmark) for a snapshot
+    """
     noseIndex = index_from_landmark['left_eye_outer']
     leftEyeIndex = index_from_landmark['left_eye_outer']
     rightEyeIndex = index_from_landmark['right_eye_outer']
+    
+    # nose is an array with the coordinates of the landmark "nose"
     nose = np.array([coord for i, coord in enumerate(x) if (i < (3*(noseIndex + 1)) and i>=(3*noseIndex))])
+    
+    # leftEye is an array with the coordinates of the landmark "leftEye"
     leftEye = np.array([coord for i, coord in enumerate(x) if (i < (3*(leftEyeIndex + 1)) and i>=(3*leftEyeIndex))])
+    
+    # rightEye is an array with the coordinates of the landmark "rightEye"
     rightEye = np.array([coord for i, coord in enumerate(x) if (i < (3*(rightEyeIndex + 1)) and i>=(3*rightEyeIndex))])
+    
+    # distance between left and right eyes
     scale = np.linalg.norm(leftEye - rightEye)
-    return np.array([rescaleEntry(landmarks[int(i/3)], coord, nose, scale) 
+    
+    # This creates an array using the rescaled values
+    return np.array([rescaleEntry(landmarks[int(i/3)], coord, nose, scale)
         for i, coord 
         in enumerate(x)
         if (i >= (3*(noseIndex + 1)) or i<(3*noseIndex))])

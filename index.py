@@ -6,6 +6,9 @@ from utils.math import euclidean
 from osc.client import Client
 from utils.cache import Cache
 
+
+#rawMotionBankCSVPath = 
+
 # from sqlalchemy import create_engine
 # from sqlalchemy import update
 from sqlalchemy.orm import sessionmaker
@@ -80,13 +83,23 @@ def start_video_capture(address, *args):
     print("Batch size is ", Cache["mediapipe"]["cacheSize"])
     # Model.setGMM(fileName="MariaMovementSequence_xyz_27Sept", batch_size=Cache["mediapipe"]["cacheSize"])
     ## @ADRIAN: Model.
-    Model.fitModelFromMotionBank(
-        batch_size=Cache["mediapipe"]["cacheSize"],
-        n_components= 4, 
-        rawMotionBankCSVPath,
-        landmarkFileName, 
-        fromCache=False,
-        fromRoot=False)
+    print('args[2]', args[2])
+    print('args[3]', args[3])
+
+    import easygui
+
+    testvalue = easygui.buttonbox('text', 'title', [args[2], args[3]])
+    print(testvalue)
+
+    # Model.fitModelFromMotionBank(
+    #     batch_size=Cache["mediapipe"]["cacheSize"],
+    #     n_components= 4, 
+    #     #print('args[2]', args[2])
+    #     #print('args[3]', args[3])
+    #     rawMotionBankCSVPath = args[2],
+    #     landmarkFileName = args[3], 
+    #     fromCache=False,
+    #     fromRoot=False)
     ## figure out wether landmarks should be drawn
     landmarkflag = args[1]==1
     MediaPipe.handleCapture(with_drawing_landmarks=landmarkflag)
