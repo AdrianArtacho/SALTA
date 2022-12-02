@@ -101,6 +101,60 @@ Then when loading the new packages run:
 pip install -r requirements.txt
 ```
 
+
+
+### Create a virtual environment with CONDA
+
+1. Check conda is installed and in your PATH
+   
+   ```
+   conda -V
+   ```
+
+2. Check conda is up to date
+   
+   ```
+   conda update conda
+   ```
+
+3. Create env
+   
+   ```
+    conda create python=3.7 -n Chen2020
+   ```
+
+4. .
+
+...
+
+### How to delete a virtual environment
+
+##### In CONDA:
+
+1. Step 1: Find the Conda environment to delete
+   
+   ```terminal
+   conda env list
+   ```
+
+2. Step 2: Get out of the environment
+   
+   ```terminal
+   conda deactivate
+   ```
+
+3. Step 3: Delete the Conda Environment
+   
+   ```python
+   conda env remove -n corrupted_env
+   # OR
+   conda env remove -p /path/to/env
+   ```
+
+
+
+
+
 ____
 
 # To-Do
