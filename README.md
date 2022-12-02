@@ -11,7 +11,7 @@ This document describes the usage and troubleshooting of the *Orbis* App. Other 
 
 The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
 
-In order to run the application, go to the appropriate *.venv* and run **index.py**:
+In order to run the application, go to the appropriate [*.venv*](readme_venv.md) and run **index.py**:
 
 ```python
 source .venv/bin/activate
