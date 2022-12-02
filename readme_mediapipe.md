@@ -97,8 +97,6 @@ platform.architecture()[0]
 exit()
 ```
 
-
-
 ____
 
 # To-Do

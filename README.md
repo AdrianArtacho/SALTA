@@ -56,6 +56,12 @@ Value *1* enables video on screen. Zero disables it.
 
 `sendosc [Client IP] [Client PORT] /changeClient s [new IP] i [new PORT]`
 
+### Fit Model from Motion bank
+
+In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export a [readme_motionbank.md](readme_motionbank.md))
+
+*sendosc [ip] [port]* `/startVideoCapture s [exported.csv] s [destination file]`
+
 ### How to find out my local python architecture (32/64 bits)
 
 Go into python console by typin `python` in the terminal (inside /MediaPipe folder)
@@ -73,7 +79,7 @@ platform.architecture()[0]
 exit()
 ```
 
-### Gaussian mixture model (gmm)
+### Gaussian mixture model (GMM)
 
 MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total). 
 
