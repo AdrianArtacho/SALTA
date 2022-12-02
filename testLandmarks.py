@@ -16,11 +16,11 @@ for i in range(1, len(sys.argv)):
 
 
 fromRoot = True
-fromCache = True
+fromCache = False
 batch_size = 3
 n_components = 4
 
-landmarkCSVFileName = 'testAgainMaria'
+landmarkCSVFileName = 'testAgainMaria2'
 
 print('fitting model')
 tM.Model.fitModelFromMotionBank(

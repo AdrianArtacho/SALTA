@@ -453,6 +453,8 @@ class LandmarksRetrieval:
       # Draw the pose annotation on the image.
         image.flags.writeable = True
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        height, width = image.shape[:2]
+        image = cv2.resize(image, dsize=(2*width, 2*height), interpolation=cv2.INTER_CUBIC)
         results = pose.process(image)
         mp_drawing.draw_landmarks(
             image,

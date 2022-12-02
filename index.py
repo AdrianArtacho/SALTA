@@ -82,7 +82,7 @@ def start_video_capture(address, *args):
     ## @ADRIAN: Model.
     Model.fitModelFromMotionBank(
         batch_size=Cache["mediapipe"]["cacheSize"],
-        n_components= 4, 
+        n_components= 4,
         rawMotionBankCSVPath,
         landmarkFileName, 
         fromCache=False,
