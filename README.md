@@ -167,4 +167,5 @@ Frontend little contributions:
 
 # Authors
 
-[Adrián Artacho](http://www.artacho.at/), [Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/)
+[Adrián Artacho](http://www.artacho.at/), 
+[Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/)
