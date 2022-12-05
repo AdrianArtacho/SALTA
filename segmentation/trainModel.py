@@ -231,20 +231,8 @@ class Training:
 #         Model.gmm = GaussianMixture(n_components=len(Annotations.keys()), random_state=0).fit(result)
 
 
-<<<<<<< HEAD
-    def fitModelFromMotionBank(batch_size, n_components, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
-        """
-        This function first generates darta (landmarks) from the motion bank video
-        and then fits the GMM model with that data.
-        """
-        # for rawMotionBankCSVPath in rawMotionBankCSVPaths:
-        lR = mp.LandmarksRetrieval()
-        result = lR.generateDataFromPieceMaker(batch_size=batch_size, rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
-        Model.gmm = GaussianMixture(n_components=n_components, random_state=0).fit(result)
-=======
 #     def fitModelFromMotionBank(batch_size, n_components, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
 #         # for rawMotionBankCSVPath in rawMotionBankCSVPaths:
 #         lR = mp.LandmarksRetrieval()
 #         result = lR.generateDataFromPieceMaker(batch_size=batch_size, rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
 #         Model.gmm = GaussianMixture(n_components=n_components, random_state=0).fit(result)
->>>>>>> e63eddf87adaed46fcf050141cd8eff661b04437
