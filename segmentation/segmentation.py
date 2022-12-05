@@ -112,16 +112,30 @@ def filterDf(df, mch_output):
     # print(badColumns)
     return df.drop(badColumns, axis=1, inplace=False)
 
+
 def generateTrainingDataFromPieceMaker(df, annotations, batch_size):
-    # trainingData = np.ndarray((0,len(df.columns) - 1))
+    """cleans and prepares data for training
+
+    Args:
+        df (pandas dataframe): input data
+        annotations (dict): keys are the annotations and values are dictionaries with the following content (keys): "name", "by", "from", "till".
+        batch_size (int): number of frames for training
+
+    Returns:
+        np.array: training data
+    """
+
     trainingData = list()
     for a in annotations.values():
-        # print('annotation', a)
-        # relevant times 
-        subDf = df[(df.time>=a["from"]) & (df.time<=a["till"])]
+        ## a is one particular annotation (dict)
+
+        subDf = df[(df.time >= a["from"]) & (df.time<=a["till"])]
+        ## only data entries, no time
         subDf_temp = subDf.drop(["time"], axis=1, inplace=False)
 
         for wnd in subDf_temp.rolling(batch_size):
+            ## iterates over all the rolling windows (wnd)
+            # flattens the data
             data = wnd.values.flatten()
             print('data', data)
             print('length of data', len(data), '\n3batchsize', 3*batch_size)
