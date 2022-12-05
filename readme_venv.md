@@ -101,8 +101,6 @@ Then when loading the new packages run:
 pip install -r requirements.txt
 ```
 
-
-
 ### Create a virtual environment with CONDA
 
 1. Check conda is installed and in your PATH
@@ -150,10 +148,6 @@ pip install -r requirements.txt
    # OR
    conda env remove -p /path/to/env
    ```
-
-
-
-
 
 ____
 
