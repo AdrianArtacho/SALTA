@@ -47,6 +47,10 @@ class Model:
 
 
     def fitModelFromMotionBank(batch_size, n_components, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
+        """
+        This function first generates darta (landmarks) from the motion bank video
+        and then fits the GMM model with that data.
+        """
         # for rawMotionBankCSVPath in rawMotionBankCSVPaths:
         lR = mp.LandmarksRetrieval()
         result = lR.generateDataFromPieceMaker(batch_size=batch_size, rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)

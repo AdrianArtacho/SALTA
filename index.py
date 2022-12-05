@@ -88,18 +88,18 @@ def start_video_capture(address, *args):
 
     import easygui
 
-    testvalue = easygui.buttonbox('text', 'title', [args[2], args[3]])
-    print(testvalue)
+    #testvalue = easygui.buttonbox('text', 'title', [args[2], args[3]])
+    #print(testvalue)
 
-    # Model.fitModelFromMotionBank(
-    #     batch_size=Cache["mediapipe"]["cacheSize"],
-    #     n_components= 4, 
-    #     #print('args[2]', args[2])
-    #     #print('args[3]', args[3])
-    #     rawMotionBankCSVPath = args[2],
-    #     landmarkFileName = args[3], 
-    #     fromCache=False,
-    #     fromRoot=False)
+    Model.fitModelFromMotionBank(
+        batch_size=Cache["mediapipe"]["cacheSize"],
+        n_components= 4, 
+        #print('args[2]', args[2])
+        #print('args[3]', args[3])
+        rawMotionBankCSVPath = args[2],
+        landmarkFileName = args[3], 
+        fromCache=False,
+        fromRoot=False)
     ## figure out wether landmarks should be drawn
     landmarkflag = args[1]==1
     MediaPipe.handleCapture(with_drawing_landmarks=landmarkflag)
