@@ -50,7 +50,7 @@ fromCache = False   #If true, it will just read the last retrieved data, at the 
 batch_size = 3
 n_components = 4
 
-landmarkCSVFileName = 'testAgainMaria'
+landmarkCSVFileName = 'testAgainMaria2'
 
 print('fitting model...')
 tM.Model.fitModelFromMotionBank(

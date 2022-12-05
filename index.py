@@ -83,6 +83,13 @@ def start_video_capture(address, *args):
     print("Batch size is ", Cache["mediapipe"]["cacheSize"])
     # Model.setGMM(fileName="MariaMovementSequence_xyz_27Sept", batch_size=Cache["mediapipe"]["cacheSize"])
     ## @ADRIAN: Model.
+    # Model.fitModelFromMotionBank(
+    #     batch_size=Cache["mediapipe"]["cacheSize"],
+    #     n_components= 4,
+    #     rawMotionBankCSVPath,
+    #     landmarkFileName, 
+    #     fromCache=False,
+    #     fromRoot=False)
     print('args[2]', args[2])
     print('args[3]', args[3])
 
