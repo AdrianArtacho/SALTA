@@ -28,6 +28,17 @@ Extract and train GMM
 ## It updates the model
 # 
 # 
+
+def createFileName(output_channels):
+    output_channels.sort(reverse=False)
+    hashed_file_name = ""
+    stringified_output = "_".join(output_channels)
+    if len(stringified_output)>50:
+        hashed_file_name = stringified_output[0:29] + "__" + str(abs(hash(stringified_output[29:])))
+    else:
+        hashed_file_name = stringified_output
+    return hashed_file_name
+
  
 def getFrameRate(video, verbose=False):
   (major_ver, minor_ver, subminor_ver) = (cv2.__version__).split('.')
@@ -57,6 +68,7 @@ class Training:
         """retrieves data from Piecemaker through csv-file
         """
     
+
     def getFilteredDataFrame(self, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False, saveOutputToCSV=True):
         """
         Retrieves the youtube link from the rawMotionBankCSVPath and extracts the landmarks
@@ -69,14 +81,19 @@ class Training:
 
         # run the landmark multiple choice filter
         mch_output =  landmarks_mp.chooselandmarks()
-    
+        
+        hashed_file_name = createFileName(mch_output)
+
         # run cv2 from the video to retrieve landmarks
+        landmarkFileName = (landmarkFileName[:-4] if landmarkFileName.endswith('.csv') else landmarkFileName)
         if fromRoot:
-            lm_path = os.path.join("data", "csv", landmarkFileName + ".csv")
-            lm_path_filtered = os.path.join("data", "csv", landmarkFileName + "_filtered_" + "_".join(mch_output) + ".csv")
+
+            lm_path = os.path.join(os.getcwd(), "data", "csv", landmarkFileName + ".csv")
+            lm_path_filtered = os.path.join(os.getcwd(), "data", "csv", landmarkFileName + "_filtered_" + hashed_file_name + ".csv")
         else:
-            lm_path = os.path.join("..","data", "csv", landmarkFileName + ".csv")
-            lm_path_filtered = os.path.join("..","data", "csv", landmarkFileName + "_filtered" + "_".join(mch_output) + ".csv")
+
+            lm_path = os.path.join(os.getcwd(), "..","data", "csv", landmarkFileName + ".csv")
+            lm_path_filtered = os.path.join(os.getcwd(), "..","data", "csv", landmarkFileName + "_filtered" + hashed_file_name + ".csv")
         
     
         if fromCache:
@@ -96,12 +113,12 @@ class Training:
         return df_filtered, parseddict
         
 
-    def generateDataFromPieceMaker(self, batch_size, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
+    def generateDataFromPieceMaker(self, batch_size, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False, saveOutputToCSV=True):
         """
         retrieves the landmarks from the motionbank annotations and generate taining data.
         """
 
-        df_filtered, parseddict = self.getFilteredDataFrame(rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
+        df_filtered, parseddict = self.getFilteredDataFrame(rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot,saveOutputToCSV=saveOutputToCSV)
 
         # get the training data
         result = sg.generateTrainingDataFromPieceMaker(
