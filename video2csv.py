@@ -28,10 +28,11 @@ def main():
 
     
     
-    if typeOfFunctionCall=='training':
+    if typeOfFunctionCall=='gettrainingdata':
 
         print(f'We are in {typeOfFunctionCall}')
-        newKwargs = dict(**kwargs,  batch_size=(sys.argv[6] if withOptionalArguments else 3))
+        newKwargs = dict(**kwargs,  batch_size=(int(sys.argv[6]) if withOptionalArguments else 3))
+        # print(newKwargs)
         res = tr.generateDataFromPieceMaker(**newKwargs)
         # print(res)
         
@@ -40,9 +41,14 @@ def main():
         df, parse_anno = tr.getFilteredDataFrame(**kwargs)
         # print(df)
 
+    elif typeOfFunctionCall=='training':
+        pass
+
     else: 
         print("You have selected the wrong function call")
 
 
 if __name__ == '__main__':
     main()
+
+
