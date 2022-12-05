@@ -10,8 +10,7 @@ def main():
     rawMotionBankCSVPath = sys.argv[2]
     landmarkFileName = sys.argv[3]
 
-    batch_size = 3
-    withOptionalArguments = len(sys.argv)>5
+    withOptionalArguments = len(sys.argv)>4
     if withOptionalArguments:
         fromCache = True if sys.argv[4]=="True" else False
         saveOutputToCSV = True if sys.argv[5]=="True" else False
@@ -32,7 +31,7 @@ def main():
     if typeOfFunctionCall=='training':
 
         print(f'We are in {typeOfFunctionCall}')
-        newKwargs = dict(**kwargs,  batch_size=batch_size) if withOptionalArguments else kwargs
+        newKwargs = dict(**kwargs,  batch_size=(sys.argv[6] if withOptionalArguments else 3))
         res = tr.generateDataFromPieceMaker(**newKwargs)
         # print(res)
         
