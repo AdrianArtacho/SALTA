@@ -31,7 +31,7 @@ def main():
     if typeOfFunctionCall=='training':
 
         print(f'We are in {typeOfFunctionCall}')
-        newKwargs = dict(**kwargs,  batch_size=(sys.argv[6] if withOptionalArguments else 3))
+        newKwargs = dict(**kwargs,  batch_size=(int(sys.argv[6]) if withOptionalArguments else 3))
         res = tr.generateDataFromPieceMaker(**newKwargs)
         # print(res)
         
