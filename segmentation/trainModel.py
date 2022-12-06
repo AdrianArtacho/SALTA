@@ -60,8 +60,12 @@ def getFrameRate(video, verbose=False):
 class Training:
 
 
-    def __init__(self) -> None:
-        self.pickle = ""
+    def __init__(self, picklepath = "somewhere.pickle") -> None:
+        self.pickle = os.path.join(os.getcwd(), picklepath)
+        self.gmm = None
+
+    def loadGMM(self):
+        self.gmm = pickle.load(open(self.pickle, "rb"))
         
 
     def retrieveData(self, filepath):
@@ -201,6 +205,12 @@ class Training:
         cv2.destroyAllWindows()
         return df
 
+    def fitModel(self, n_components, data):
+        self.gmm = GaussianMixture(n_components=n_components, random_state=0).fit(data)
+
+
+    def pickleModel(self):
+        pickle.dump(self.gmm, open(self.pickle, "wb"))
 
 
 # class Model:
