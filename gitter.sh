@@ -8,5 +8,5 @@ git submodule foreach 'git --no-optional-locks -c color.branch=false -c color.di
 git submodule foreach 'git push origin master || :' 
 git add . 
 git commit -m "push everything" 
-#git submodule foreach 'git status || :'
+git submodule foreach 'git status || :'
 git push origin master
