@@ -19,8 +19,7 @@ python video2csv.py training parseannotations/csv/motionbank_test.csv examplebaa
 
 Where the arguments are the following:
 
-**arg #1** is a specific type of function call. 
-Options are `raw`, `training` and `gettrainingdata`.
+**arg #1** is a specific type of function call. Options are `raw`, `training` and `gettrainingdata`.
 
 **arg #2** `data/csv/sourcefile.csv` (relative path to the raw .csv file exported from motion Bank's piecemaker)
 
