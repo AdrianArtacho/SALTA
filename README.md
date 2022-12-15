@@ -2,17 +2,17 @@
 
 This document describes the usage and troubleshooting of the *Orbis* App. Other related documents are:
 
-- [Setting up a virtual environment](readme_venv.md)
+- [Setting up a virtual environment](documentation/readme_venv.md)
 
-- [Communicating across modules using OSC](readme_osc.md)
+- [Communicating across modules using OSC](documentation/readme_osc.md)
 
-- [Install and troubleshoot](readme_install.md)
+- [Install and troubleshoot](documentation/readme_install.md)
 
 ## Settings
 
 The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
 
-In order to run the application, go to the appropriate [*.venv*](readme_venv.md) and run **index.py**:
+In order to run the application, go to the appropriate [*.venv*](documentation/readme_venv.md) and run **index.py**:
 
 ```python
 source .venv/bin/activate
@@ -25,7 +25,7 @@ Using a different terminal window, one can start/stop and configure different se
 
 ## Usage for real-time MoCap
 
-This module uses the Mediapipe library to capture the performer's body skeleton as landmarks. For instructions on how to intall and troubleshoot mediapipe, go to [readme_mediapipe.md](readme_mediapipe.md).
+This module uses the Mediapipe library to capture the performer's body skeleton as landmarks. For instructions on how to intall and troubleshoot mediapipe, go to [readme_mediapipe.md](documentation/readme_mediapipe.md).
 
 1. Go to repository's root folder
 
@@ -59,7 +59,7 @@ Value *1* enables video on screen. Zero disables it.
 
 ### Fit Model from Motion bank
 
-In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export a [readme_motionbank.md](readme_motionbank.md))
+In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export a [readme_motionbank.md](documentation/readme_motionbank.md))
 
 *sendosc [ip] [port]* `/startVideoCapture s [exported.csv] s [destination file]`
 
