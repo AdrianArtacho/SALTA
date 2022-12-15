@@ -10,3 +10,4 @@ git add .
 git commit -m "push everything" 
 git submodule foreach 'git status || :'
 git push origin master
+git status
