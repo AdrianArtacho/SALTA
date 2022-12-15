@@ -33,7 +33,9 @@ This module uses the Mediapipe library to capture the performer's body skeleton 
 
    *) You may ask the seerver to print client IP and port anytime by running:
 
-   `sendosc [IP] [PORT] /printClientInfo`
+   ```terminal
+   sendosc [IP] [PORT] /printClientInfo
+   ```
 
 3. Start/Stop video capture:
 
@@ -59,9 +61,12 @@ Value *1* enables video on screen. Zero disables it.
 
 ### Fit Model from Motion bank
 
-In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export a [readme_motionbank.md](documentation/readme_motionbank.md))
+In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export [from the
+motionbank](documentation/readme_motionbank.md))
 
-*sendosc [ip] [port]* `/startVideoCapture s [exported.csv] s [destination file]`
+```terminal
+sendosc [ip] [port] /startVideoCapture s [exported.csv] s [destination file]
+```
 
 ### How to find out my local python architecture (32/64 bits)
 
