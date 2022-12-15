@@ -31,7 +31,6 @@ Where the arguments are the following:
 
 **arg #6** `3` is an integer that defines the amount of...
 
-
 ### launch remotely
 
 A legacy use of this feature can also be run from the terminal (via osc, therefore `index.py` should be running for this to work) using the following instruction:
@@ -140,10 +139,11 @@ exit()
 
 MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total).
 
-## Authors
+## Credits
 
-[Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/),
-[Adrián Artacho](http://www.artacho.at/)
+This software was developed in the context of the Artistic Research Project *Atlas of Smooth Spaces* by [Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/) and
+[Adrián Artacho](http://www.artacho.at/).
+
 ---
 
 ## To-Do
