@@ -3,11 +3,12 @@
 This document describes the usage and troubleshooting of the *Orbis* App. Other related documents are:
 
 - [Setting up a virtual environment](readme_venv.md)
-* [Communicating across modules using OSC](readme_osc.md) 
 
-* [Install and troubleshoot](readme_install.md)
+- [Communicating across modules using OSC](readme_osc.md)
 
-### Settings
+- [Install and troubleshoot](readme_install.md)
+
+## Settings
 
 The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
 
@@ -29,24 +30,24 @@ This module uses the Mediapipe library to capture the performer's body skeleton 
 1. Go to repository's root folder
 
 2. run `python index.py` (this will print the server's IP and PORT )
-   
+
    *) You may ask the seerver to print client IP and port anytime by running:
-   
+
    `sendosc [IP] [PORT] /printClientInfo`
 
 3. Start/Stop video capture:
-   
+
    *sendosc [ip] [port]* `/startVideoCapture i 1 i 1`
-   
+
    *sendosc [ip] [port]*  `/stopVideoCapture`
 
 4. Start/Stop server:
-   
+
    *sendosc [ip] [port]*  `/startServer`
-   
+
    *sendosc [ip] [port]*  `/stopServer`
 
-#### Start Capture
+### Start Capture
 
 Value *1* enables video on screen. Zero disables it.
 
@@ -81,11 +82,11 @@ exit()
 
 ### Gaussian mixture model (GMM)
 
-MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total). 
+MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total).
 
 ---
 
-# To-Do
+## To-Do
 
 - Adapt to the Effects format
 - have the csv pulled directly from Motion Bank (API)
@@ -98,7 +99,7 @@ Frontend little contributions:
 
 - rename 'testAgainMaria.csv' into something neutral
 
-# Authors
+## Authors
 
 [Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/),
 [Adrián Artacho](http://www.artacho.at/)
