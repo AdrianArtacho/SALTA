@@ -19,19 +19,20 @@ python video2csv.py training parseannotations/csv/motionbank_test.csv examplebaa
 
 Where the arguments are the following:
 
-**arg #1** `training` is a specific process/function.
+**arg #1** is a specific type of function call. 
+Options are `raw`, `training` and `gettrainingdata`.
 
-**arg #2** `data/csv/sourcefile.csv` (relative path)
+**arg #2** `data/csv/sourcefile.csv` (relative path to the raw .csv file exported from motion Bank's piecemaker)
 
-**arg #3** `data/csv/outputfile.csv` (relative path)
+**arg #3** `landmarkfilename.csv` (name -perhaps also relative path?- of the desired output .csv file with the extracted landmarks)
 
-**arg #4** `True` is a Boolean...
+**arg #4** `True` (*fromCache*) Boolean value that sets wether or not the processing should be done from the cached data of a previous run of the program.
 
-**arg #5** `True` is a Boolean...
+**arg #5** `True` (*SaveOutputToCSV*) Boolean that determines whether or not to save the output landmarks in a csv file.
 
-**arg #6** `3` is an integer that defines the amount of...
+**arg #6** `3` Batch size. It is an integer that defines the amount of...
 
-### launch remotely
+## launch remotely
 
 A legacy use of this feature can also be run from the terminal (via osc, therefore `index.py` should be running for this to work) using the following instruction:
 
