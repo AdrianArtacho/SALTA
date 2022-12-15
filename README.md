@@ -8,7 +8,52 @@ This document describes the usage and troubleshooting of the *Orbis* App. Other 
 
 - [Install and troubleshoot](documentation/readme_install.md)
 
-## Settings
+## Extract landmarks from video
+
+The easiest way to extract landmarks from a video hosted in the motion bank is
+to run the script **video2csv.py**
+
+```shell
+python video2csv.py training parseannotations/csv/motionbank_test.csv examplebaa True True 3
+```
+
+Where the arguments are the following:
+
+**arg #1** `training` is a specific process/function.
+
+**arg #2** `data/csv/sourcefile.csv` (relative path)
+
+**arg #3** `data/csv/outputfile.csv` (relative path)
+
+**arg #4** `True` is a Boolean...
+
+**arg #5** `True` is a Boolean...
+
+**arg #6** `3` is an integer that defines the amount of...
+
+
+### launch remotely
+
+A legacy use of this feature can also be run from the terminal (via osc, therefore `index.py` should be running for this to work) using the following instruction:
+
+```shell
+sendosc [ip] [port] /startVideoCapture i 1 i 1 s [sourcefile.csv] s [outputfile.csv]
+```
+
+### Arguments
+
+**arg0** `/startVideoCapture`command
+
+**arg1** `i 1` integer: open display video window?
+
+**arg2** `i 1` integer: save the obtained data in a db?
+
+**arg3** `s data/csv/sourcefile.csv` string: relative path t the sourcefile.
+
+**arg4** `s data/csv/outputfile.csv`
+string: relative path to the sourcefile.
+
+## Server Settings
 
 The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
 
@@ -55,11 +100,15 @@ This module uses the Mediapipe library to capture the performer's body skeleton 
 
 Value *1* enables video on screen. Zero disables it.
 
-`sendosc [Client IP] [Client PORT] /startCapture i [1/0]`
+```shell
+sendosc [Client IP] [Client PORT] /startCapture i [1/0]
+```
 
 #### Change Client
 
-`sendosc [Client IP] [Client PORT] /changeClient s [new IP] i [new PORT]`
+```shell
+sendosc [Client IP] [Client PORT] /changeClient s [new IP] i [new PORT]
+```
 
 ### Fit Model from Motion bank
 
@@ -91,6 +140,10 @@ exit()
 
 MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total).
 
+## Authors
+
+[Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/),
+[Adrián Artacho](http://www.artacho.at/)
 ---
 
 ## To-Do
@@ -106,7 +159,6 @@ Frontend little contributions:
 
 - rename 'testAgainMaria.csv' into something neutral
 
-## Authors
+Open issues:
 
-[Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/),
-[Adrián Artacho](http://www.artacho.at/)
+- Is index.py still a thing? or is it obsolete?
