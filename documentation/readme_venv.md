@@ -123,7 +123,7 @@ pip install -r requirements.txt
 
 4. .
 
-...
+____
 
 ### How to delete a virtual environment
 
