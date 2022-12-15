@@ -21,7 +21,9 @@ python index.py
 
 Using a different terminal window, one can start/stop and configure different settings using the following commands (via OSC). All of them can be run using the following osc message syntax:
 
-`sendosc [Client IPadress] [Client port] /Command [optional: i 1]`
+```shell
+sendosc [Client IPadress] [Client port] /Command [optional: i 1]
+```
 
 ## Usage for real-time MoCap
 
@@ -33,7 +35,7 @@ This module uses the Mediapipe library to capture the performer's body skeleton 
 
    *) You may ask the seerver to print client IP and port anytime by running:
 
-   ```terminal
+   ```shell
    sendosc [IP] [PORT] /printClientInfo
    ```
 
@@ -64,7 +66,7 @@ Value *1* enables video on screen. Zero disables it.
 In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export [from the
 motionbank](documentation/readme_motionbank.md))
 
-```terminal
+```shell
 sendosc [ip] [port] /startVideoCapture s [exported.csv] s [destination file]
 ```
 
