@@ -18,7 +18,7 @@ layout = [  [sg.Text('Argument #1: choose which type of function call'),
             [sg.OK(), sg.Button('Cancel')] ]
 
 
-# **arg #6** `3` Batch size. It is an integer that defines the amount of...
+# **arg #6** `3` Batch size. It is an integer that defines the amount of....
 
 
 window = sg.Window('video2csv', layout)
