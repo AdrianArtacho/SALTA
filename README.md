@@ -14,7 +14,7 @@ The easiest way to extract landmarks from a video hosted in the motion bank is
 to run the script **video2csv.py**
 
 ```shell
-python video2csv.py training parseannotations/csv/motionbank_test.csv examplebaa True True 3
+python video2csv.py raw data/gesturetest.csv 2022-12-16_21-38 False True 3
 ```
 
 Where the arguments are the following:
