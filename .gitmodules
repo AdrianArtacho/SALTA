@@ -10,3 +10,9 @@
 [submodule "documentation"]
 	path = documentation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/readme_files.git
+[submodule "GraphDitty"]
+	path = GraphDitty
+	url = https://github.com/ctralie/GraphDitty.git
+[submodule "graphditty"]
+	path = graphditty
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/graphditty.git
