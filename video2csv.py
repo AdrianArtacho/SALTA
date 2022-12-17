@@ -42,6 +42,7 @@ def main():
         
     elif typeOfFunctionCall=='raw':
         print(f'We are in {typeOfFunctionCall}')
+        print('arguments are: ', kwargs)
         df, parse_anno = tr.getFilteredDataFrame(**kwargs)
         # print(df)
 
