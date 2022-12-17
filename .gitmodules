@@ -13,3 +13,6 @@
 [submodule "audioss"]
 	path = audioss
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/audioss.git
+[submodule "tmm2python"]
+	path = tmm2python
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/tmm2python.git
