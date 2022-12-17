@@ -10,3 +10,6 @@
 [submodule "documentation"]
 	path = documentation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/readme_files.git
+[submodule "audioss"]
+	path = audioss
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/audioss.git
