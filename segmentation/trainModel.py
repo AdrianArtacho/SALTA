@@ -1,6 +1,7 @@
 ## Load libaries
 from sklearn.mixture import GaussianMixture
 import scipy
+import numpy as np # Adrian added this, seemed to be missing
 
 import os 
 import pandas as pd
