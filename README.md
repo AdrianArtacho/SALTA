@@ -162,3 +162,5 @@ Frontend little contributions:
 Open issues:
 
 - Is index.py still a thing? or is it obsolete?
+
+- run in dedicated laptop
