@@ -4,9 +4,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/frontend.git
-[submodule "mp2amc"]
-	path = mp2amc
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/mp2amc.git
 [submodule "documentation"]
 	path = documentation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/readme_files.git
