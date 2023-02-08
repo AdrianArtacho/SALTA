@@ -1,6 +1,7 @@
 ## Load libaries
 from sklearn.mixture import GaussianMixture
 import scipy
+import numpy as np # Adrian added this, seemed to be missing
 
 import os 
 import pandas as pd
@@ -115,7 +116,7 @@ class Training:
            df_filtered.to_csv(lm_path_filtered)
     
         return df_filtered, parseddict
-        
+  
 
     def generateDataFromPieceMaker(self, batch_size, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False, saveOutputToCSV=True):
         """

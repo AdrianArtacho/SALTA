@@ -1,5 +1,7 @@
 import sys
 from segmentation.trainModel import Training
+# import video2csv_GUI as GUI
+# import os
 
 def main():
     ## create Training instance
@@ -11,6 +13,8 @@ def main():
     landmarkFileName = sys.argv[3]
 
     withOptionalArguments = len(sys.argv)>4
+
+
     if withOptionalArguments:
         fromCache = True if sys.argv[4]=="True" else False
         saveOutputToCSV = True if sys.argv[5]=="True" else False
@@ -38,6 +42,7 @@ def main():
         
     elif typeOfFunctionCall=='raw':
         print(f'We are in {typeOfFunctionCall}')
+        print('arguments are: ', kwargs)
         df, parse_anno = tr.getFilteredDataFrame(**kwargs)
         # print(df)
 
