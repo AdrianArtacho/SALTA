@@ -213,36 +213,36 @@ class Training:
         pickle.dump(self.gmm, open(self.pickle, "wb"))
 
 
-# class Model:
+class Model:
     
-#     gmm : GaussianMixture
+    gmm : GaussianMixture
 
-#     # def __init__(self):
-#     #     self.gmm = None
+    # def __init__(self):
+    #     self.gmm = None
 
-#     def setGMM(fileName, anno, fps=15, batch_size=3, timeToFrame=sg.kdenLiveTimeToFrame, asDict=False):
-#         ## Load dataframe from file
-#         df = sg.loadData(fileName=fileName, fps=fps)
-#         print('--> Dataframe has been loaded into df object.')
-#         ## rescale entries
-#         df_rescaled = sg.rescaleDf(df)
-#         print('--> Landmarks have been recentered around the nose and rescaled by the distance between the eyes.')
-#         # ## get datapoints from annotations
-#         print('batch size before generating result', batch_size)
-#         result = sg.generateDataFromAnnotation(
-#             df=df_rescaled,
-#             anno=anno,
-#             batch_size=batch_size, 
-#             timeToFrame=timeToFrame,
-#             asDict=asDict)
+    def setGMM(fileName, anno, fps=15, batch_size=3, timeToFrame=sg.kdenLiveTimeToFrame, asDict=False):
+        ## Load dataframe from file
+        df = sg.loadData(fileName=fileName, fps=fps)
+        print('--> Dataframe has been loaded into df object.')
+        ## rescale entries
+        df_rescaled = sg.rescaleDf(df)
+        print('--> Landmarks have been recentered around the nose and rescaled by the distance between the eyes.')
+        # ## get datapoints from annotations
+        print('batch size before generating result', batch_size)
+        result = sg.generateDataFromAnnotation(
+            df=df_rescaled,
+            anno=anno,
+            batch_size=batch_size, 
+            timeToFrame=timeToFrame,
+            asDict=asDict)
         
-#         print('--> Start training.')
-#         print('dimensions of result: ', result.shape )
-#         Model.gmm = GaussianMixture(n_components=len(Annotations.keys()), random_state=0).fit(result)
+        print('--> Start training.')
+        print('dimensions of result: ', result.shape )
+        Model.gmm = GaussianMixture(n_components=len(Annotations.keys()), random_state=0).fit(result)
 
 
-#     def fitModelFromMotionBank(batch_size, n_components, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
-#         # for rawMotionBankCSVPath in rawMotionBankCSVPaths:
-#         lR = mp.LandmarksRetrieval()
-#         result = lR.generateDataFromPieceMaker(batch_size=batch_size, rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
-#         Model.gmm = GaussianMixture(n_components=n_components, random_state=0).fit(result)
+    def fitModelFromMotionBank(batch_size, n_components, rawMotionBankCSVPath, landmarkFileName, fromCache=False, fromRoot=False):
+        # for rawMotionBankCSVPath in rawMotionBankCSVPaths:
+        lR = mp.LandmarksRetrieval()
+        result = lR.generateDataFromPieceMaker(batch_size=batch_size, rawMotionBankCSVPath=rawMotionBankCSVPath, landmarkFileName=landmarkFileName, fromCache=fromCache, fromRoot=fromRoot)
+        Model.gmm = GaussianMixture(n_components=n_components, random_state=0).fit(result)
