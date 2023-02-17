@@ -1,4 +1,4 @@
-# /ORBIS/ (working name)
+# /SALTA/ (working name)
 
 This document describes the usage and troubleshooting of the *Orbis* App. Other related documents are:
 
@@ -76,23 +76,23 @@ This module uses the Mediapipe library to capture the performer's body skeleton 
 1. Go to repository's root folder
 
 2. run `python index.py` (this will print the server's IP and PORT )
-
+   
    *) You may ask the seerver to print client IP and port anytime by running:
-
+   
    ```shell
    sendosc [IP] [PORT] /printClientInfo
    ```
 
 3. Start/Stop video capture:
-
+   
    *sendosc [ip] [port]* `/startVideoCapture i 1 i 1`
-
+   
    *sendosc [ip] [port]*  `/stopVideoCapture`
 
 4. Start/Stop server:
-
+   
    *sendosc [ip] [port]*  `/startServer`
-
+   
    *sendosc [ip] [port]*  `/stopServer`
 
 ### Start Capture

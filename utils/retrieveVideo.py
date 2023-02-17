@@ -2,7 +2,7 @@ import pafy
  
 
 def retrieveVideo(url = "https://www.youtube.com/watch?v=6zQkbTzN8yY"):
-  video = pafy.new(url)
+  video = pafy.new(url, ydl_opts={'nocheckcertificate': True})
   best  = video.getbest()
   try:
     return best.url

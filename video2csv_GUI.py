@@ -15,7 +15,7 @@ def parse_cmd_video2csv(cmd_arguments):
 layout = [  [sg.Text('Argument #1: choose which type of function call'), 
             sg.Combo(['raw', 'training', 'gettrainingdata'], default_value='raw', s=(13,22), enable_events=True, readonly=False, k='-functionCallType-')],
             [sg.Text('Argument #2: relative path to the raw .csv file exported from Piecemaker')],
-            [sg.FolderBrowse('select inputfile', target='-input-'), 
+            [sg.FilesBrowse('select inputfile', target='-input-'), 
             sg.Input('data/gesturetest.csv', key='-input-', enable_events=True, s=40)],
             [sg.Text('Argument #3: name of the output .csv file with the extracted landmarks')],
             [sg.FolderBrowse('select outputfile', target='-output-'), 
@@ -55,8 +55,9 @@ while True:
         cmd_arguments[5] = values['-batchSize-']
     elif event == 'OK':
         # print(cmd_arguments)
-        window.close()
+        #window.close()
         parse_cmd_video2csv(cmd_arguments)
+        window.close()
 
 window.close()
 
