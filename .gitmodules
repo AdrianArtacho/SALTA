@@ -16,3 +16,6 @@
 [submodule "prepcsv"]
 	path = prepcsv
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/prepcsv.git
+[submodule "comparesegments"]
+	path = comparesegments
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/comparesegments.git
