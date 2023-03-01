@@ -19,3 +19,6 @@
 [submodule "comparesegments"]
 	path = comparesegments
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/comparesegments.git
+[submodule "correlation"]
+	path = correlation
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/correlation.git
