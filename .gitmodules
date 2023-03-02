@@ -22,3 +22,6 @@
 [submodule "correlation"]
 	path = correlation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/correlation.git
+[submodule "extraudio"]
+	path = extraudio
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/extraudio.git
