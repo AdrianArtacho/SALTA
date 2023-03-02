@@ -25,3 +25,6 @@
 [submodule "extraudio"]
 	path = extraudio
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/extraudio.git
+[submodule "emotouch"]
+	path = emotouch
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/emotouch.git
