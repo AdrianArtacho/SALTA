@@ -28,3 +28,6 @@
 [submodule "emotouch"]
 	path = emotouch
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/emotouch.git
+[submodule "gui_mwe"]
+	path = gui_mwe
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/gui_mwe.git
