@@ -1,12 +1,22 @@
 # /SALTA/ (working name)
 
-This document describes the usage and troubleshooting of the *Orbis* App. Other related documents are:
+This document describes the usage and troubleshooting of the *SALTA* App. Included are also the following submodules:
+
+- [prepcsv](prepcsv/README.md) module for preprocessing of data
+
+- 
+
+---
+
+Other related documents are:
 
 - [Setting up a virtual environment](documentation/readme_venv.md)
 
 - [Communicating across modules using OSC](documentation/readme_osc.md)
 
 - [Install and troubleshoot](documentation/readme_install.md)
+
+---
 
 ## Extract landmarks from video
 
@@ -31,6 +41,8 @@ Where the arguments are the following:
 
 **arg #6** `3` Batch size. It is an integer that defines the amount of...
 
+---
+
 ## launch remotely
 
 A legacy use of this feature can also be run from the terminal (via osc, therefore `index.py` should be running for this to work) using the following instruction:
@@ -52,6 +64,8 @@ sendosc [ip] [port] /startVideoCapture i 1 i 1 s [sourcefile.csv] s [outputfile.
 **arg4** `s data/csv/outputfile.csv`
 string: relative path to the sourcefile.
 
+---
+
 ## Server Settings
 
 The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
@@ -68,6 +82,8 @@ Using a different terminal window, one can start/stop and configure different se
 ```shell
 sendosc [Client IPadress] [Client port] /Command [optional: i 1]
 ```
+
+---
 
 ## Usage for real-time MoCap
 
@@ -95,6 +111,8 @@ This module uses the Mediapipe library to capture the performer's body skeleton 
    
    *sendosc [ip] [port]*  `/stopServer`
 
+---
+
 ### Start Capture
 
 Value *1* enables video on screen. Zero disables it.
@@ -118,6 +136,8 @@ motionbank](documentation/readme_motionbank.md))
 sendosc [ip] [port] /startVideoCapture s [exported.csv] s [destination file]
 ```
 
+---
+
 ### How to find out my local python architecture (32/64 bits)
 
 Go into python console by typin `python` in the terminal (inside /MediaPipe folder)
@@ -135,9 +155,13 @@ platform.architecture()[0]
 exit()
 ```
 
+---
+
 ### Gaussian mixture model (GMM)
 
 MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total).
+
+---
 
 ## Credits
 
