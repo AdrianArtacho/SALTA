@@ -188,3 +188,13 @@ Open issues:
 - Is index.py still a thing? or is it obsolete?
 
 - run in dedicated laptop
+
+---
+
+### Install requirements
+
+```shell
+pip install -r requirements.txt
+```
+
+---
