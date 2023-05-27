@@ -10,9 +10,6 @@
 [submodule "audioss"]
 	path = audioss
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/audioss.git
-[submodule "tmm2python"]
-	path = tmm2python
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/tmm2python.git
 [submodule "prepcsv"]
 	path = prepcsv
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/prepcsv.git
@@ -22,9 +19,6 @@
 [submodule "correlation"]
 	path = correlation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/correlation.git
-[submodule "extraudio"]
-	path = extraudio
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/extraudio.git
 [submodule "emotouch"]
 	path = emotouch
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/emotouch.git
@@ -40,3 +34,9 @@
 [submodule "py2tmm"]
 	path = py2tmm
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/py2tmm.git
+[submodule "tmm2python"]
+	path = tmm2python
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/tmm2python.git
+[submodule "extraudio"]
+	path = extraudio
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/extraudio.git
