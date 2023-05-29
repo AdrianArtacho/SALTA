@@ -4,7 +4,7 @@ This document describes the usage and troubleshooting of the *SALTA* App. Includ
 
 - [prepcsv](prepcsv/README.md) module for preprocessing of data
 
-- 
+- [comparesegments](comparesegments/README.md) combines `cutsf.csv`and `cutsb.csb`from TMM and privides a graph.
 
 ---
 
