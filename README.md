@@ -198,3 +198,15 @@ pip install -r requirements.txt
 ```
 
 ---
+
+### Multiple Performers
+
+:bulb: Include tip for multiple dancers, as per the Kollegium colleague (check email inbox)
+
+---
+
+## To-Do
+
+- Perhaps craft a flowchart that shows the different modules working together?
+
+- Incorporate Plantiga device...
