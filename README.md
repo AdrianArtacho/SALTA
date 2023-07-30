@@ -8,6 +8,14 @@ This document describes the usage and troubleshooting of the *SALTA* App. Includ
 
 ---
 
+## Flowchart
+
+Schematics of how the modules work together:
+
+[![salta-flow.drawio](https://drive.google.com/uc?id=1yz1x2jixFmPCdwruCAAuMhku5LfHvDS1)](https://app.diagrams.net/#G1Iwc3_E2BWQN6c4V-xuxGYPxpawDynI5T)
+
+---
+
 Other related documents are:
 
 - [Setting up a virtual environment](documentation/readme_venv.md)
