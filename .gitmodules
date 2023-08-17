@@ -43,3 +43,6 @@
 [submodule "public_salta"]
 	path = public_salta
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/public_salta.git
+[submodule "NOTATION"]
+	path = NOTATION
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/notation.git
