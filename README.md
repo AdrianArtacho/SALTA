@@ -218,3 +218,7 @@ pip install -r requirements.txt
 - Perhaps craft a flowchart that shows the different modules working together?
 
 - Incorporate Plantiga device...
+
+- Maybe a way to process videos dircely from Youtube, without the motionbank step... (ask Leo)
+
+- 
