@@ -60,3 +60,7 @@ Live/Ganzer_session\ Project/Backup/*.als
 
 # Ignore pickled_annotations
 pickled_annotations.csv
+
+# Data folder?
+!data/gesturetest.csv
+data/
