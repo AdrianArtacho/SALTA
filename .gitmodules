@@ -46,3 +46,6 @@
 [submodule "NOTATION"]
 	path = NOTATION
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/notation.git
+[submodule "imuextract"]
+	path = imuextract
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/imuextract.git
