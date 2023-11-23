@@ -49,3 +49,6 @@
 [submodule "imuextract"]
 	path = imuextract
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/imuextract.git
+[submodule "multipipe"]
+	path = multipipe
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/multipipe.git
