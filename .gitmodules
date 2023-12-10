@@ -55,3 +55,6 @@
 [submodule "pyt_abstractions"]
 	path = pyt_abstractions
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/pyt_abstractions.git
+[submodule "isolate_subject"]
+	path = isolate_subject
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/isolate_subject.git
