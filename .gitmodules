@@ -58,3 +58,6 @@
 [submodule "isolate_subject"]
 	path = isolate_subject
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/isolate_subject.git
+[submodule "nd-simplex"]
+	path = nd-simplex
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/nd-simplex.git
