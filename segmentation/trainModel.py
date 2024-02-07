@@ -173,23 +173,22 @@ class Training:
                     landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
                 
                 #----------------OLD, buggy
-                newData = {coord + str(j):lm.__getattribute__(coord)  for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y", "z"]}
+                # newData = {coord + str(j):lm.__getattribute__(coord)  for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y", "z"]}
                 #----------------NEW, fixed?
                 if results.pose_landmarks:
                     newData = {coord + str(j):lm.__getattribute__(coord) for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y", "z"]}
+                    newData.update({'time': oldTime})
+                    PoseData.append(newData)
                 else:
                     print("NO LANDMARKS DETECTED!")
                     # If results.pose_landmarks is None, handle the situation, for example, by creating an empty newData or logging the lack of detection.
                     # This block is where you should handle cases where no landmarks are detected.
                     # For example, you can create an empty dictionary with np.nan values or log the frame with no detections.
-                    # newData = {coord + str(j):np.nan for j in range(expected_number_of_landmarks) for coord in ["x", "y", "z"]}
-                    # newData.update({'time': oldTime})
-                    # PoseData.append(newData)
+                    newData = {coord + str(j):np.nan for j in range(33) for coord in ["x", "y", "z"]}
+                    newData.update({'time': oldTime})
+                    PoseData.append(newData)
                 #--------------------------
 
-                newData.update({'time': oldTime})
-                PoseData.append(newData)
-            
             except Exception as ex:
                 newData = {coord + str(j):np.nan  for j, lm in enumerate(results.pose_landmarks.landmark) for coord in ["x", "y", "z"]}
                 newData.update({'time': oldTime})

@@ -43,7 +43,7 @@ def main():
     elif typeOfFunctionCall=='raw':
         print(f'We are in {typeOfFunctionCall}')
         print('arguments are: ', kwargs)
-        df, parse_anno = tr.getFilteredDataFrame(**kwargs)
+        df, parse_anno = tr.getFilteredDataFrame(**kwargs)    #AAB ??
         # print(df)
 
     elif typeOfFunctionCall=='training':
