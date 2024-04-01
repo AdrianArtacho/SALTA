@@ -14,12 +14,50 @@ document.addEventListener("DOMContentLoaded", function () {
     let svgContainer = null;
     let xValues, colorScale, xScale, margin, parentContainer, parentWidth, totalHeight, features, colorScaleDefault;
 
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+    if (file) {
+        const configData = JSON.parse(sessionStorage.getItem('configData')) || { class: {}, color: {}, weights: {}, hex_color: {} };
+
+        colorScale = d3.scaleSequential(d3.interpolateViridis).domain([0, params.size + 2]);
+        color_index = params.size - 2;
+
+        params.forEach((value, key) => {
+            if (key.startsWith("w")) {
+                const feature = key.substring(1); // Extract the feature name
+                const weight = parseFloat(value); // Parse the weight value
+                if (!isNaN(weight)) { // Check if the parsed weight is a valid number
+                    configData.weights[feature] = weight; // Update the weight in configData
+                    configData.hex_color[feature] = colorScale(color_index); // Update the color in configData
+                }
+                color_index = color_index - 1;
+            }
+        });
+
+        sessionStorage.setItem('configData', JSON.stringify(configData));
+
+        dataDropdown.value = file; // Set the dropdown to the specified file
+        const selectedDataset = dataDropdown.value;
+        const storedDataSets = JSON.parse(localStorage.getItem("dataSets")) || {};
+
+        if (selectedDataset) {
+            // Update the session storage with the selected dataset
+            sessionStorage.setItem("selectedData", JSON.stringify(storedDataSets[selectedDataset]));
+            data = storedDataSets[selectedDataset];
+            features = Object.keys(data).filter(key => key !== "x_values" && key !== "tuples");
+        }
+
+        // Trigger the plot button click after a slight delay to ensure everything is set up properly
+        setTimeout(() => {
+            plotButton.click();
+        }, 100);
+    }
 
     plotButton.addEventListener("click", function () {
         const configData = JSON.parse(sessionStorage.getItem('configData'));
         if (configData) {
             const defaultWeights = configData['weights'];
-            const colors = configData['color'];
+            const colors = configData['hex_color'];
             const keyValueArray = Object.keys(colors).map(key => ({ key, value: colors[key] }));
             // Sort the array based on the values
             keyValueArray.sort((a, b) => a.value.localeCompare(b.value));
@@ -57,9 +95,29 @@ document.addEventListener("DOMContentLoaded", function () {
             sessionStorage.setItem("selectedData", JSON.stringify(storedDataSets[selectedDataset]));
             data = storedDataSets[selectedDataset];
             features = Object.keys(data).filter(key => key !== "x_values" && key !== "tuples");
-            console.log("features: ", features);
+            updateURLForSelectedFile(selectedDataset);
         }
     });
+
+    function updateURLForSelectedFile(selectedFile) {
+        // const params = new URLSearchParams(window.location.search);
+        params.set('file', selectedFile);
+
+        // Optionally, keep existing weight parameters if necessary
+        // For each slider currently on the page, add its value to the URL
+        document.querySelectorAll('.slider-input').forEach(slider => {
+            const feature = slider.getAttribute('data-feature');
+            if (feature) {
+                const weightParam = `w${feature}`;
+                const weightValue = slider.value;
+                params.set(weightParam, weightValue);
+            }
+        });
+
+        // Update the URL with the new file parameter and any weight parameters
+        const newUrl = `${window.location.pathname}?${params}`;
+        window.history.pushState({ path: newUrl }, '', newUrl);
+    }
 
     peaksSlider.addEventListener("change", function () {
         if (Object.keys(subplotRefs).length !== 0 || subplotRefs.constructor !== Object) {
@@ -235,6 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slider.value = valueDisplay.value;
         slider.style.accentColor = color;
         slider.style.setProperty("--track-color", "green");
+        updateURLParameter(feature, slider.value);
 
         // Append the slider to the feature-slider div
         featureSliderDiv.appendChild(label);
@@ -250,6 +309,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const peaksSlider = document.getElementById("peaks-distance-slider");
             const peaksDistance = peaksSlider.value;
             valueDisplay.value = sliderValue.toFixed(2);
+            updateURLParameter(feature, sliderValue);
             scaleData(feature, sliderValue);
             updateSinglePlot(feature, index);
             findPeaks(distance = peaksDistance);
@@ -260,11 +320,29 @@ document.addEventListener("DOMContentLoaded", function () {
             const peaksSlider = document.getElementById("peaks-distance-slider");
             const peaksDistance = peaksSlider.value;
             slider.value = textValue.toFixed(2);
+            updateURLParameter(feature, sliderValue);
             scaleData(feature, textValue);
             updateSinglePlot(feature, index);
             findPeaks(distance = peaksDistance);
         });
     };
+
+    function updateURLParameter(feature, value) {
+        // Retrieve the current URL parameters
+        const params = new URLSearchParams(window.location.search);
+
+        // Construct the parameter name based on the feature, e.g., "wf14" for feature "14f"
+        const paramName = `w${feature}`; // This regex removes non-digit characters from the feature name
+
+        // Update the parameter value
+        params.set(paramName, value);
+
+        // Construct the new URL
+        const newUrl = `${window.location.pathname}?${params}`;
+
+        // Update the URL without reloading the page
+        window.history.pushState({ path: newUrl }, '', newUrl);
+    }
 
     function scaleData(feature, weight) {
         scaledData[feature] = data[feature].map(value => value * weight);
