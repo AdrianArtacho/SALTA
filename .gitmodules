@@ -64,3 +64,6 @@
 [submodule "cleandata"]
 	path = cleandata
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/cleandata.git
+[submodule "matlab-engine"]
+	path = matlab-engine
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/matlab-engine.git
