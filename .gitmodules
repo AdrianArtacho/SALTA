@@ -67,6 +67,3 @@
 [submodule "slicefeatures"]
 	path = slicefeatures
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/slicefeatures.git
-[submodule "matlab-api"]
-	path = matlab-api
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/matlab-api.git
