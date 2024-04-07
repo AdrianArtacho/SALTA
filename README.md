@@ -18,6 +18,8 @@ This document describes the usage and troubleshooting of the *SALTA* App.
 
 3. 
 
+4. Upload file to SALTA online interface (github)
+
 ---
 
 ## Flowchart
