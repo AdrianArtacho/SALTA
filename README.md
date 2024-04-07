@@ -16,7 +16,11 @@ This document describes the usage and troubleshooting of the *SALTA* App.
 
 2. Prepare the data
 
-3. 
+3. Generate the Probability Density Plots
+   
+   1. Use the [PLOTLY repo](https://bitbucket.org/smoothspaces/plotly) ([readme](NOTATION//sandbox/plotly/README.md)) to generate PDPs.
+      1. `python PLOT.py`
+   2. 
 
 4. Upload file to SALTA online interface (github)
 
