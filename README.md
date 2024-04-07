@@ -1,10 +1,22 @@
-# /SALTA/ (working name)
+# SALTA
 
-This document describes the usage and troubleshooting of the *SALTA* App. Included are also the following submodules:
+This document describes the usage and troubleshooting of the *SALTA* App. 
 
-- [prepcsv](prepcsv/README.md) module for preprocessing of data
+---
 
-- [comparesegments](comparesegments/README.md) combines `cutsf.csv`and `cutsb.csb`from TMM and privides a graph.
+## USAGE
+
+1. Process the captured performance to extract features
+   
+   1. Landmarks from video
+   
+   2. Sound features
+   
+   3. IMU features
+
+2. Prepare the data
+
+3. 
 
 ---
 
@@ -12,213 +24,24 @@ This document describes the usage and troubleshooting of the *SALTA* App. Includ
 
 Schematics of how the modules work together:
 
-[![salta-flow.drawio](https://drive.google.com/uc?id=1yz1x2jixFmPCdwruCAAuMhku5LfHvDS1)](https://app.diagrams.net/#G1Iwc3_E2BWQN6c4V-xuxGYPxpawDynI5T)
+[![salta-flow.drawio](https://bitbucket.org/smoothspaces/public_salta/raw/HEAD/images/salta-flow.png)](https://app.diagrams.net/#G1Iwc3_E2BWQN6c4V-xuxGYPxpawDynI5T)
 
 ---
 
-Other related documents are:
+## Other documents
 
-- [Setting up a virtual environment](documentation/readme_venv.md)
+Related documents can be found:
 
-- [Communicating across modules using OSC](documentation/readme_osc.md)
+- [SALTA/installation](documentation/readme_install.md)
 
-- [Install and troubleshoot](documentation/readme_install.md)
+- [SALTA/ communicate across modules using OSC](documentation/readme_osc.md)
 
----
+- [SALTA/ mediapipe](documentation/readme_mediapipe.md)
 
-## Extract landmarks from video
+- [SALTA/ extract landmarks from video](documentation/readme_video2csv.md)
 
-The easiest way to extract landmarks from a video hosted in the motion bank is
-to run the script **video2csv.py**
+- [SALTA/motionbank](documentation/readme_motionbank.md)
 
-```shell
-python video2csv.py raw data/gesturetest.csv 2022-12-16_21-38 False True 3
-```
-
-Where the arguments are the following:
-
-**arg #1** is a specific type of function call. Options are `raw`, `training` and `gettrainingdata`.
-
-**arg #2** `data/csv/sourcefile.csv` (relative path to the raw .csv file exported from motion Bank's piecemaker)
-
-**arg #3** `landmarkfilename.csv` (name -perhaps also relative path?- of the desired output .csv file with the extracted landmarks)
-
-**arg #4** `True` (*fromCache*) Boolean value that sets wether or not the processing should be done from the cached data of a previous run of the program.
-
-**arg #5** `True` (*SaveOutputToCSV*) Boolean that determines whether or not to save the output landmarks in a csv file.
-
-**arg #6** `3` Batch size. It is an integer that defines the amount of...
+- [SALTA/ annotations](documentation/readme_annotations.md)
 
 ---
-
-## launch remotely
-
-A legacy use of this feature can also be run from the terminal (via osc, therefore `index.py` should be running for this to work) using the following instruction:
-
-```shell
-sendosc [ip] [port] /startVideoCapture i 1 i 1 s [sourcefile.csv] s [outputfile.csv]
-```
-
-### Arguments
-
-**arg0** `/startVideoCapture`command
-
-**arg1** `i 1` integer: open display video window?
-
-**arg2** `i 1` integer: save the obtained data in a db?
-
-**arg3** `s data/csv/sourcefile.csv` string: relative path t the sourcefile.
-
-**arg4** `s data/csv/outputfile.csv`
-string: relative path to the sourcefile.
-
----
-
-## Server Settings
-
-The udp port `53534` is kinda fix, and refers to the computer (ip) where the script is running. The *ClientIP* is where the landmarks, reading, results... etc. are sent. One can change the ClienIP and port in `server_config.py`.
-
-In order to run the application, go to the appropriate [*.venv*](documentation/readme_venv.md) and run **index.py**:
-
-```python
-source .venv/bin/activate
-python index.py
-```
-
-Using a different terminal window, one can start/stop and configure different settings using the following commands (via OSC). All of them can be run using the following osc message syntax:
-
-```shell
-sendosc [Client IPadress] [Client port] /Command [optional: i 1]
-```
-
----
-
-## Usage for real-time MoCap
-
-This module uses the Mediapipe library to capture the performer's body skeleton as landmarks. For instructions on how to intall and troubleshoot mediapipe, go to [readme_mediapipe.md](documentation/readme_mediapipe.md).
-
-1. Go to repository's root folder
-
-2. run `python index.py` (this will print the server's IP and PORT )
-   
-   *) You may ask the seerver to print client IP and port anytime by running:
-   
-   ```shell
-   sendosc [IP] [PORT] /printClientInfo
-   ```
-
-3. Start/Stop video capture:
-   
-   *sendosc [ip] [port]* `/startVideoCapture i 1 i 1`
-   
-   *sendosc [ip] [port]*  `/stopVideoCapture`
-
-4. Start/Stop server:
-   
-   *sendosc [ip] [port]*  `/startServer`
-   
-   *sendosc [ip] [port]*  `/stopServer`
-
----
-
-### Start Capture
-
-Value *1* enables video on screen. Zero disables it.
-
-```shell
-sendosc [Client IP] [Client PORT] /startCapture i [1/0]
-```
-
-#### Change Client
-
-```shell
-sendosc [Client IP] [Client PORT] /changeClient s [new IP] i [new PORT]
-```
-
-### Fit Model from Motion bank
-
-In order to convert a video directly from the Scene in the Motion Bank (instructions on how to annotate and export [from the
-motionbank](documentation/readme_motionbank.md))
-
-```shell
-sendosc [ip] [port] /startVideoCapture s [exported.csv] s [destination file]
-```
-
----
-
-### How to find out my local python architecture (32/64 bits)
-
-Go into python console by typin `python` in the terminal (inside /MediaPipe folder)
-
-```python
-#go into python console
-python
-
-# exectute commands to get python's architecture
-import platform
-platform.architecture()[0]
-
-
-# leave the python console
-exit()
-```
-
----
-
-### Gaussian mixture model (GMM)
-
-MediaPipe in 'pose' mode yields 32 landmarks, each with three spatial values (96 values in total). The Gaussian mixture model  takes 3 points in time for each value (288 values in total).
-
----
-
-## Credits
-
-This software was developed in the context of the Artistic Research Project *Atlas of Smooth Spaces* by [Leonhard Horstmeyer](https://www.csh.ac.at/researcher/leonhard-horstmeyer/) and
-[Adrián Artacho](http://www.artacho.at/).
-
----
-
-## To-Do
-
-- Adapt to the Effects format
-- have the csv pulled directly from Motion Bank (API)
-
-Frontend little contributions:
-
-- browse and select file when python testLandMarks is run
-
-- fromCache flag
-
-- rename 'testAgainMaria.csv' into something neutral
-
-Open issues:
-
-- Is index.py still a thing? or is it obsolete?
-
-- run in dedicated laptop
-
----
-
-### Install requirements
-
-```shell
-pip install -r requirements.txt
-```
-
----
-
-### Multiple Performers
-
-:bulb: Include tip for multiple dancers, as per the Kollegium colleague (check email inbox)
-
----
-
-## To-Do
-
-- Perhaps craft a flowchart that shows the different modules working together?
-
-- Incorporate Plantiga device...
-
-- Maybe a way to process videos dircely from Youtube, without the motionbank step... (ask Leo)
-
-- 
