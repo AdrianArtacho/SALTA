@@ -20,14 +20,14 @@ This document describes the usage and troubleshooting of the *SALTA* App.
    
    1. Use [CompareSegments](https://bitbucket.org/smoothspaces/comparesegments) ([readme](comparesegments/README.md)) to create exchange JSONs.
       
-      1. `python BATCH.py` (:exclamation:The feature names need to be written ToGetHer)
+      1. `python BATCH.py` (:exclamation:The feature names need to be written *ToGetHer*)
       
       2. (optional) normalize relative weights: `python feat_relnorm.py`
 
 4. Generate the Probability Density Plots
    
-   1. Use [PLOTLY](https://bitbucket.org/smoothspaces/plotly) ([readme](NOTATION//sandbox/plotly/README.md)) to generate PDPs.
-      1. `python PLOT.py`
+   1. Use [PLOTLY](https://bitbucket.org/smoothspaces/plotly) ([readme](NOTATION//sandbox/plotly/README.md)) to generate PDPs. (:exclamation:Overlap/Lonely not yet implemented)
+      1. `python PLOT.py`(:exclamation:What is the 'd' feature?
    2. 
 
 5. Upload file to SALTA online interface (github)
