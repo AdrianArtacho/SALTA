@@ -73,3 +73,6 @@
 [submodule "confidence"]
 	path = confidence
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/confidence.git
+[submodule "clustering"]
+	path = clustering
+	url = https://AdrianArtacho@bitbucket.org/augmentedperformer/clustering.git
