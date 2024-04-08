@@ -76,3 +76,6 @@
 [submodule "clustering"]
 	path = clustering
 	url = https://AdrianArtacho@bitbucket.org/augmentedperformer/clustering.git
+[submodule "featurestructure"]
+	path = featurestructure
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/featurestructure.git
