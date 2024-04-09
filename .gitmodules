@@ -79,3 +79,6 @@
 [submodule "featurestructure"]
 	path = featurestructure
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/featurestructure.git
+[submodule "plotly"]
+	path = plotly
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/plotly.git
