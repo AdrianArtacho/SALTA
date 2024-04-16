@@ -84,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         findPeaks();
+        createExportButton();
+        // exportData();
     });
 
     dataDropdown.addEventListener("change", function () {
@@ -479,6 +481,53 @@ document.addEventListener("DOMContentLoaded", function () {
                     .style("fill-opacity", 0.85);
             });
         });
+    };
+
+
+    function createExportButton() {
+        const slidersContainer = document.querySelector(".sliders-container");
+
+        // Create a div with class "feature-slider"
+        const featureSliderDiv = document.createElement("div");
+        featureSliderDiv.className = "feature-slider";
+        featureSliderDiv.style.height = fixedSubplotHeight + "px";
+
+        // Create the range slider
+        const exportButton = document.createElement("button");
+        exportButton.textContent = 'Export Data';
+        exportButton.className = 'btn-default';
+        exportButton.style.width = "100%";
+
+        featureSliderDiv.appendChild(exportButton);
+        slidersContainer.appendChild(featureSliderDiv);
+
+        exportButton.addEventListener("click", exportData);
+    };
+
+    function exportData() {
+        var scaledData = JSON.parse(sessionStorage.getItem('scaledData'));
+        var data = JSON.parse(sessionStorage.getItem('selectedData'));
+
+        let combinedData = {
+            data: data,
+            scaledData: scaledData
+        }
+
+        console.log('Data sucessfully acquired.');
+
+        console.log('DATA: ', combinedData);
+
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(combinedData));
+
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", "data.json"); // Choose the file name and extension
+        document.body.appendChild(downloadAnchorNode); // Required for Firefox
+
+        // Trigger the download
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
+
     };
 
 });
