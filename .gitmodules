@@ -82,3 +82,6 @@
 [submodule "plotly"]
 	path = plotly
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/plotly.git
+[submodule "uinterpreter"]
+	path = uinterpreter
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/uinterpreter.git
