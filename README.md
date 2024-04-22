@@ -59,3 +59,9 @@ Related documents can be found:
 - [SALTA/ annotations](documentation/readme_annotations.md)
 
 ---
+
+### To-Do
+
+[Trello](https://trello.com/b/eNrZMJnA/salta-segmentation-app)
+
+---
