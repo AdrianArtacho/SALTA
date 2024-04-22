@@ -38,7 +38,7 @@ This document describes the usage and troubleshooting of the *SALTA* App.
 
 Schematics of how the modules work together:
 
-[![salta-flow.drawio](https://bitbucket.org/smoothspaces/public_salta/raw/HEAD/images/salta-flow.png)](https://app.diagrams.net/#G1Iwc3_E2BWQN6c4V-xuxGYPxpawDynI5T)
+![salta-flow](https://docs.google.com/drawings/d/e/2PACX-1vSSeaxl-8Dkjy0i_DYtegbYjZq4F4oL-teoOxTim0c4vMzLSerRn9PVWJHqMw458Vh1KaAfw_5Htdg6/pub?w=596&h=1024)
 
 ---
 
