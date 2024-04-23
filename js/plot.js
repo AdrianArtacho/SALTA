@@ -128,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     peaksSlider.addEventListener("change", function () {
         if (Object.keys(subplotRefs).length !== 0 || subplotRefs.constructor !== Object) {
-            console.log(peaksSlider.value);
             findPeaks(distance = peaksSlider.value);
             updateURLParameter(feature = 'peaks', value = peaksSlider.value, is_feature = false);
         }
@@ -523,10 +522,6 @@ document.addEventListener("DOMContentLoaded", function () {
             data: data,
             scaledData: scaledData
         }
-
-        console.log('Data sucessfully acquired.');
-
-        console.log('DATA: ', combinedData);
 
         var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(combinedData));
 
