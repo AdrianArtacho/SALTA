@@ -483,7 +483,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-
     function createExportButton() {
         const slidersContainer = document.querySelector(".sliders-container");
 

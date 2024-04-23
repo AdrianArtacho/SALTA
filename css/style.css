@@ -11,6 +11,21 @@
     display: none;
 }
 
+.header-content {
+    position: fixed;
+    width: 97%;
+    height: 200px;
+    background-color: #fff;
+    z-index: 100;
+    transition: max-height 0.3s ease-out;
+}
+
+.header-content.collapsed {
+    max-height: 0;  /* Collapse the header */
+    overflow: hidden;  /* Hide the content in the collapsed state */
+    padding: 0;  /* Optional: remove padding in collapsed state */
+}
+
 .tabs-container{
     border-bottom: 2px solid #71b5ffb4;
     padding-bottom: 0.2rem;
@@ -139,7 +154,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    margin-top: 2rem;
+    margin-top: 225px;
 }
 
 .svg-container {
