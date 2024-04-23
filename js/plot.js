@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const params = new URLSearchParams(window.location.search);
     const file = params.get('file');
     if (file) {
-        const configData = JSON.parse(sessionStorage.getItem('configData')) || { class: {}, color: {}, weights: {}, hex_color: {} };
+        const configData = { class: {}, color: {}, weights: {}, hex_color: {} };
 
         colorScale = d3.scaleSequential(d3.interpolateViridis).domain([0, params.size + 2]);
         color_index = params.size - 2;
@@ -104,6 +104,9 @@ document.addEventListener("DOMContentLoaded", function () {
             features = Object.keys(data).filter(key => key !== "x_values" && key !== "tuples");
             updateURLForSelectedFile(selectedDataset);
         }
+
+        sessionStorage.removeItem("scaledData");
+        sessionStorage.removeItem("configData");
     });
 
     function updateURLForSelectedFile(selectedFile) {
