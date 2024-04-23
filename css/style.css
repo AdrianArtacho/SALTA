@@ -1,21 +1,27 @@
 .tabs {
     display: flex;
 }
+
 .tab-button {
     cursor: pointer;
     padding: 10px 20px;
     background-color: #ccc;
     border: none;
 }
+
 .tab-content {
     display: none;
 }
 
-.header-content {
-    position: fixed;
-    width: 97%;
-    height: 200px;
+.header-container{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: #fff;
+    padding-top: 10px;
+}
+
+.header-content {
     z-index: 100;
     transition: max-height 0.3s ease-out;
 }
@@ -27,6 +33,7 @@
 }
 
 .tabs-container{
+    /* position: fixed; */
     border-bottom: 2px solid #71b5ffb4;
     padding-bottom: 0.2rem;
     margin-bottom: 1rem;
@@ -154,7 +161,7 @@ li {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    margin-top: 225px;
+    margin-top: 25px;
 }
 
 .svg-container {
