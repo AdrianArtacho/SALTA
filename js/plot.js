@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dataDropdown = document.getElementById("data-dropdown");
     const peaksSlider = document.getElementById("peaks-distance-slider");
+    const peaksOutput = document.getElementById("peaks-distance-output");
     const storedDataSets = JSON.parse(localStorage.getItem("dataSets")) || {};
     const fixedSubplotHeight = 125;
     const plotButton = document.getElementById("plot-btn");
@@ -31,6 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     configData.hex_color[feature] = colorScale(color_index); // Update the color in configData
                 }
                 color_index = color_index - 1;
+            } else if (key == 'peaks') {
+                peaksSlider.value = value;
+                peaksOutput.value = value;
+                peaksOutput.textContent = value;
             }
         });
 
@@ -83,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 updateSinglePlot(feature, index);
             }
         });
-        findPeaks();
+        findPeaks(distance = peaksSlider.value);
         createExportButton();
         // exportData();
     });
@@ -125,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (Object.keys(subplotRefs).length !== 0 || subplotRefs.constructor !== Object) {
             console.log(peaksSlider.value);
             findPeaks(distance = peaksSlider.value);
+            updateURLParameter(feature = 'peaks', value = peaksSlider.value, is_feature = false);
         }
     });
 
@@ -329,12 +335,18 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     };
 
-    function updateURLParameter(feature, value) {
+    function updateURLParameter(feature, value, is_feature = true) {
         // Retrieve the current URL parameters
         const params = new URLSearchParams(window.location.search);
 
-        // Construct the parameter name based on the feature, e.g., "wf14" for feature "14f"
-        const paramName = `w${feature}`; // This regex removes non-digit characters from the feature name
+        let paramName;
+
+        if (is_feature == true) {
+            // Construct the parameter name based on the feature, e.g., "wf14" for feature "14f"
+            paramName = `w${feature}`; // This regex removes non-digit characters from the feature name
+        } else {
+            paramName = `${feature}`; // This regex removes non-digit characters from the feature name
+        }
 
         // Update the parameter value
         params.set(paramName, value);
