@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         sessionStorage.removeItem("scaledData");
-        sessionStorage.removeItem("configData");
+        // sessionStorage.removeItem("configData");
     });
 
     function updateURLForSelectedFile(selectedFile) {
