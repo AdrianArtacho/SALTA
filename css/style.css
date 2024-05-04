@@ -56,6 +56,10 @@
     font-size: 14px;
 }
 
+#confidenceTextContainer {
+    padding: 1px;
+}
+
 .custom-file-label input[type="file"] {
     position: absolute;
     font-size: 100px;
