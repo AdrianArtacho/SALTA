@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.history.pushState({ path: cleanUrl }, '', cleanUrl);
             updateURLForSelectedFile(selectedDataset);
         }
+        sessionStorage.removeItem("peaksData");
         sessionStorage.removeItem("scaledData");
         sessionStorage.removeItem("configData");
         sessionStorage.removeItem("confidenceText");
