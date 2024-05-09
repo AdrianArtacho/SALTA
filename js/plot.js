@@ -170,28 +170,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Calculate the total height required for all subplots
         totalHeight = fixedSubplotHeight * features.length;
-        console.log('Total Height: ', totalHeight);
 
         // Create a color scale using Viridis
         colorScale = d3.scaleSequential(d3.interpolateViridis)
             .domain([0, features.length]);
 
+        // // If the SVG container doesn't exist, create it
+        // if (!svgContainer) {
+        //     // Create an SVG container to hold all the subplots
+        //     svgContainer = d3.select(".svg-container").append("svg")
+        //         .attr("width", parentWidth)
+        //         .attr("height", totalHeight);
+        //     slidersContainer = d3.select(".sliders-container")
+        //         .attr("class", "sliders-container")
+        //         .style("height", totalHeight);
+        // } else {
+        //     // Clear the existing content in the SVG container
+        //     svgContainer.selectAll("*").remove();
+        //     const slidersContainer = document.querySelector(".sliders-container");
+        //     slidersContainer.innerHTML = '';
+        // }
 
-        // If the SVG container doesn't exist, create it
-        if (!svgContainer) {
-            // Create an SVG container to hold all the subplots
-            svgContainer = d3.select(".svg-container").append("svg")
-                .attr("width", parentWidth)
-                .attr("height", totalHeight);
-            slidersContainer = d3.select(".sliders-container")
-                .attr("class", "sliders-container")
-                .style("height", totalHeight);
-        } else {
-            // Clear the existing content in the SVG container
-            svgContainer.selectAll("*").remove();
-            const slidersContainer = document.querySelector(".sliders-container");
-            slidersContainer.innerHTML = '';
-        }
+        svgContainer = d3.select(".svg-container").append("svg")
+            .attr("width", parentWidth)
+            .attr("height", totalHeight);
+        slidersContainer = d3.select(".sliders-container")
+            .attr("class", "sliders-container")
+            .style("height", totalHeight);
 
         // Define the scales for your subplots (x and y scales)
         xScale = d3.scaleLinear()
