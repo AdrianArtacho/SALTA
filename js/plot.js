@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("transform", (d, i) => `translate(0,${i * fixedSubplotHeight})`);
 
         subplotGroup.each(function (feature, index) {
+            console.log('FEATURE: ', feature);
             if (colorScaleDefault[feature]) {
                 color = colorScaleDefault[feature];
             }
