@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const featuresToEnd = ["General KDE", "KDE's sum", "KDE's top"];
             features = Object.keys(data).filter(key => !featuresToEnd.includes(key) && key !== "x_values" && key !== "tuples");
             features = [...features, ...featuresToEnd];
+
             const url = window.location.href;
             const baseUrl = url.split('?')[0];
             const cleanUrl = baseUrl.split('#')[0];
@@ -169,6 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Calculate the total height required for all subplots
         totalHeight = fixedSubplotHeight * features.length;
+        console.log('Total Height: ', totalHeight);
 
         // Create a color scale using Viridis
         colorScale = d3.scaleSequential(d3.interpolateViridis)
