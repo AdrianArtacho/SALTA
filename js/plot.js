@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             features = features.concat(features_to_exclude_list);
         }
         createPlots();
+        scaledData = {};
         features.forEach(function (feature, index) {
             if (defaultWeights) {
                 if (feature in defaultWeights) {
