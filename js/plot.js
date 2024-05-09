@@ -104,7 +104,11 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update the session storage with the selected dataset
             sessionStorage.setItem("selectedData", JSON.stringify(storedDataSets[selectedDataset]));
             data = storedDataSets[selectedDataset];
-            features = Object.keys(data).filter(key => key !== "x_values" && key !== "tuples");
+
+            // Define features to be moved to the end
+            const featuresToEnd = ["General KDE", "KDE's sum", "KDE's top"];
+            features = Object.keys(data).filter(key => !featuresToEnd.includes(key) && key !== "x_values" && key !== "tuples");
+            features = [...features, ...featuresToEnd];
             const url = window.location.href;
             const baseUrl = url.split('?')[0];
             const cleanUrl = baseUrl.split('#')[0];
@@ -116,7 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("scaledData");
         sessionStorage.removeItem("configData");
         sessionStorage.removeItem("confidenceText");
-        console.log('FEATURES: ', features);
     });
 
     function updateURLForSelectedFile(selectedFile) {
