@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //     slidersContainer.innerHTML = '';
         // }
 
+        d3.selectAll(".svg-container svg").remove();
         svgContainer = d3.select(".svg-container").append("svg")
             .attr("width", parentWidth)
             .attr("height", totalHeight);
