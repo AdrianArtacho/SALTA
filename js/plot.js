@@ -549,6 +549,7 @@ document.addEventListener("DOMContentLoaded", function () {
     textButton.addEventListener("click", function () {
         const textInput = document.getElementById("textInput");
         sessionStorage.setItem("confidenceText", JSON.stringify(textInput.value));
+        updateURLParameter(feature = 'confidence-text', value = textInput.value, is_feature = false);
     });
 
     function renderText() {
