@@ -115,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("scaledData");
         sessionStorage.removeItem("configData");
         sessionStorage.removeItem("confidenceText");
-        var scaledData = {};
     });
 
     function updateURLForSelectedFile(selectedFile) {
@@ -370,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function scaleData(feature, weight) {
+        var scaledData = {};
         scaledData[feature] = data[feature].map(value => value * weight);
 
         // Update "KDE's sum"
