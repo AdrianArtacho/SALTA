@@ -2,8 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const dataDropdown = document.getElementById("data-dropdown");
     const peaksSlider = document.getElementById("peaks-distance-slider");
     const peaksOutput = document.getElementById("peaks-distance-output");
-    const confidenceText = document.getElementById("confidence-input-text");
-    const storedDataSets = JSON.parse(localStorage.getItem("dataSets")) || {};
     const fixedSubplotHeight = 125;
     const plotButton = document.getElementById("plot-btn");
     const features_to_exclude_list = ["General KDE", "KDE's sum", "KDE's top"];
@@ -38,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 peaksSlider.value = value;
                 peaksOutput.value = value;
                 peaksOutput.textContent = value;
+            } else if (key == 'confidence-text') {
+                sessionStorage.setItem("confidenceText", JSON.stringify(value));
             }
         });
 
@@ -522,19 +522,6 @@ document.addEventListener("DOMContentLoaded", function () {
         slidersContainer.appendChild(featureSliderDiv);
 
         exportButton.addEventListener("click", exportData);
-
-        // const confidenceTextDiv = document.createElement("div");
-        // const confidenceTextLabel = document.createElement("label");
-        // confidenceTextLabel.textContent = 'Confidence Text';
-        // confidenceTextLabel.style.marginTop = '30px';
-        // const confidenceText = document.createElement("textArea");
-        // confidenceText.id = 'confidence-input-text';
-        // confidenceText.rows = 3;
-        // confidenceText.style.width = "100%";
-
-        // confidenceTextDiv.appendChild(confidenceTextLabel);
-        // confidenceTextDiv.appendChild(confidenceText);
-        // slidersContainer.appendChild(confidenceTextDiv);
     };
 
     function exportData() {
