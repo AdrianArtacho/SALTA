@@ -113,12 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const url = window.location.href;
             const baseUrl = url.split('?')[0];
             const cleanUrl = baseUrl.split('#')[0];
-            const defaultURL = "https://adrianartacho.github.io/SALTA/"
-
-            // Explicitly navigate to the clean URL if it's different from the current URL
-            if (window.location.href !== cleanUrl) {
-                window.location.replace(cleanUrl);
-            }
+            window.history.pushState({ path: cleanUrl }, '', cleanUrl);
             updateURLForSelectedFile(selectedDataset);
         }
         sessionStorage.removeItem("peaksData");
@@ -128,23 +123,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function updateURLForSelectedFile(selectedFile) {
-        // const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams(window.location.search);
         params.set('file', selectedFile);
-
-        // Optionally, keep existing weight parameters if necessary
-        // For each slider currently on the page, add its value to the URL
-        document.querySelectorAll('.slider-input').forEach(slider => {
-            const feature = slider.getAttribute('data-feature');
-            if (feature) {
-                const weightParam = `w${feature}`;
-                const weightValue = slider.value;
-                params.set(weightParam, weightValue);
-            }
-        });
 
         // Update the URL with the new file parameter and any weight parameters
         const newUrl = `${window.location.pathname}?${params}`;
         window.history.pushState({ path: newUrl }, '', newUrl);
+
     }
 
     peaksSlider.addEventListener("change", function () {
