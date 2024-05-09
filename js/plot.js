@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const baseUrl = url.split('?')[0];
             const cleanUrl = baseUrl.split('#')[0];
 
-            window.history.pushState({ path: cleanUrl }, '', cleanUrl);
+            window.history.pushState({ path: baseUrl }, '', baseUrl);
             updateURLForSelectedFile(selectedDataset);
         }
         sessionStorage.removeItem("peaksData");
