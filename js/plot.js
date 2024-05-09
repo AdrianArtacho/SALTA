@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const fixedSubplotHeight = 125;
     const plotButton = document.getElementById("plot-btn");
     const features_to_exclude_list = ["General KDE", "KDE's sum", "KDE's top"];
+    const textButton = document.getElementById("confidence-text-btn");
 
     var data = {};
     var scaledData = {};
@@ -91,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
         findPeaks(distance = peaksSlider.value);
         createExportButton();
-        // exportData();
+        renderText();
     });
 
     dataDropdown.addEventListener("change", function () {
@@ -112,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         sessionStorage.removeItem("scaledData");
         sessionStorage.removeItem("configData");
+        sessionStorage.removeItem("confidenceText");
     });
 
     function updateURLForSelectedFile(selectedFile) {
@@ -555,6 +557,34 @@ document.addEventListener("DOMContentLoaded", function () {
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
 
+    };
+
+    textButton.addEventListener("click", function () {
+        const textInput = document.getElementById("textInput");
+        sessionStorage.setItem("confidenceText", JSON.stringify(textInput.value));
+    });
+
+    function renderText() {
+        const textInput = JSON.parse(sessionStorage.getItem('confidenceText'));
+        const slidersContainer = document.querySelector(".sliders-container");
+
+        // Create a div with class "feature-slider"
+        const featureSliderDiv = document.createElement("div");
+        featureSliderDiv.className = "text-div";
+        featureSliderDiv.style.height = fixedSubplotHeight + "px";
+        featureSliderDiv.style.width = "30rem";
+
+        const valueDisplay = document.createElement("p");
+        valueDisplay.className = "confidence-text";
+        // valueDisplay.style.wordWrap = "break-word";
+        valueDisplay.style.overflowWrap = "break-word"; // Standard property for breaking words
+        valueDisplay.style.width = "100%";
+        valueDisplay.textContent = textInput;
+
+        featureSliderDiv.appendChild(valueDisplay);
+
+        // Append the feature-slider div to the sliders-container
+        slidersContainer.appendChild(featureSliderDiv);
     };
 
 });
