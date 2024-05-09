@@ -369,7 +369,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function scaleData(feature, weight) {
-        var scaledData = {};
         scaledData[feature] = data[feature].map(value => value * weight);
 
         // Update "KDE's sum"
