@@ -115,7 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const cleanUrl = baseUrl.split('#')[0];
             const defaultURL = "https://adrianartacho.github.io/SALTA/"
 
-            window.history.pushState({ path: cleanUrl }, '', cleanUrl);
+            // Explicitly navigate to the clean URL if it's different from the current URL
+            if (window.location.href !== cleanUrl) {
+                window.location.replace(cleanUrl);
+            }
             updateURLForSelectedFile(selectedDataset);
         }
         sessionStorage.removeItem("peaksData");
