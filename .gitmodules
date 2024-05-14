@@ -85,3 +85,6 @@
 [submodule "uinterpreter"]
 	path = uinterpreter
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/uinterpreter.git
+[submodule "mpipe"]
+	path = mpipe
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/mpipe.git
