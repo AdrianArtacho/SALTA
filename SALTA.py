@@ -19,7 +19,20 @@ choice = gui_button.main(options, default_option=0, dialog_text="Select an Optio
 print("You chose", choice)
 
 if choice == options[2]: #IMU
+    options = [ 'Midi file', '.csv from CTRL Stream App']
+    choice = gui_button.main(options, default_option=0, dialog_text="Select an Option", title="Choice")
+    
+    if choice == options[0]: #Midi file
+        scriptfile = 'IMUEXTRACT.py'
+    elif choice == options[1]: #CTRL Stream csv
+        scriptfile = 'FORMAT_STREAM.py'
+    
+    subrepo_dir = 'imuextract' 
+    returned = run_subrepo_script.main(subrepo_dir, scriptfile)
+    print(returned)
+
+else: #not coded yet
     subrepo_dir = 'imuextract'
-    scriptfile = 'IMUEXTRACT.py'
+    scriptfile = 'FORMAT_STREAM.py'
     returned = run_subrepo_script.main(subrepo_dir, scriptfile)
     print(returned)
