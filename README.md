@@ -36,7 +36,7 @@ This document describes the usage and troubleshooting of the *SALTA* App.
 
 ## Flowchart
 
-Schematics ([edit](https://app.diagrams.net/#G1Iwc3_E2BWQN6c4V-xuxGYPxpawDynI5T#%7B%22pageId%22%3A%22C5RBs43oDa-KdzZeNtuy%22%7D), [public](https://docs.google.com/drawings/d/1C0rRQYY9wtbh2hlE7nTUadQ2onZmgoqAUe75_5c2YM4/edit)) of how the modules work together:
+Schematics ([edit]([salta-flow.drawio PUBLIC - Google Zeichnungen](https://docs.google.com/drawings/d/1C0rRQYY9wtbh2hlE7nTUadQ2onZmgoqAUe75_5c2YM4/edit)), [public](https://docs.google.com/drawings/d/e/2PACX-1vSSeaxl-8Dkjy0i_DYtegbYjZq4F4oL-teoOxTim0c4vMzLSerRn9PVWJHqMw458Vh1KaAfw_5Htdg6/pub?w=628&h=1401)) of how the modules work together:
 
 ![salta-flow](https://docs.google.com/drawings/d/e/2PACX-1vSSeaxl-8Dkjy0i_DYtegbYjZq4F4oL-teoOxTim0c4vMzLSerRn9PVWJHqMw458Vh1KaAfw_5Htdg6/pub?w=596&h=1024)
 
@@ -44,7 +44,7 @@ Schematics ([edit](https://app.diagrams.net/#G1Iwc3_E2BWQN6c4V-xuxGYPxpawDynI5T#
 
 ### File structure
 
-This diagram ([edit](https://docs.google.com/drawings/d/1XH8ffvW79GotAoOFbCXrc6DADwYCszLQ9xLzEzUn4SQ/edit)) shows the folder structure for the files produced during the process...
+This diagram ([edit](https://docs.google.com/drawings/d/1XH8ffvW79GotAoOFbCXrc6DADwYCszLQ9xLzEzUn4SQ/edit), [public](https://docs.google.com/drawings/d/e/2PACX-1vR3lDOY8zUI7nY0Vahhy_xumCK1TDGWru3QoA2fSZm4olGTVXjJKrSMV6YpNrrEMyBz5mHNjnGfmEZN/pub?w=1064&h=622) shows the folder structure for the files produced during the process...
 
 ![tap-files](https://docs.google.com/drawings/d/e/2PACX-1vR3lDOY8zUI7nY0Vahhy_xumCK1TDGWru3QoA2fSZm4olGTVXjJKrSMV6YpNrrEMyBz5mHNjnGfmEZN/pub?w=1064&h=622)
 
