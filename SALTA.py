@@ -1,7 +1,7 @@
 # import gui_abstractions.display_message as display_message
-import gui_abstractions.display_text as display_text
+import gui.display_text as display_text
 # import gui_abstractions.gui_popup as gui_popup
-import gui_abstractions.gui_button as gui_button
+import gui.gui_button as gui_button
 import os
 import subprocess
 # import imuextract.IMUEXTRACT as IMUEXTRACT
