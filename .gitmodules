@@ -85,3 +85,6 @@
 [submodule "mpipe"]
 	path = mpipe
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/mpipe.git
+[submodule "gui"]
+	path = gui
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/gui_abstractions.git
