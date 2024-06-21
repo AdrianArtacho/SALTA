@@ -85,3 +85,6 @@
 [submodule "gui"]
 	path = gui
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/gui_abstractions.git
+[submodule "pyt"]
+	path = pyt
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/pyt_abstractions.git
