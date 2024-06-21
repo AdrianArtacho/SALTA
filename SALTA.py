@@ -2,10 +2,9 @@
 import gui.display_text as display_text
 # import gui_abstractions.gui_popup as gui_popup
 import gui.gui_button as gui_button
-import os
-import subprocess
-# import imuextract.IMUEXTRACT as IMUEXTRACT
-# import imuextract.time_string as time_string
+# import os
+# import subprocess
+import pyt.paths.run_subrepo_script as run_subrepo_script
 
 infowidth = 600
 infoheight = 400
@@ -20,22 +19,7 @@ choice = gui_button.main(options, default_option=0, dialog_text="Select an Optio
 print("You chose", choice)
 
 if choice == options[2]: #IMU
-    new_directory = 'imuextract'
-    os.chdir(new_directory)
-    # IMUEXTRACT()
-
-
-
-
-
-# Path to the directory containing 'ímuextract' and its '.venv' folder
-imuextract_dir = 'imuextract'
-
-# Command to activate virtual environment and run the script
-command = [
-    'bash', '-c', 
-    'source {}/.venv/bin/activate && python {}/ímuextract/IMUEXTRACT.py'.format(imuextract_dir, imuextract_dir)
-]
-
-# Execute the command
-subprocess.run(command, shell=True)
+    subrepo_dir = 'imuextract'
+    scriptfile = 'IMUEXTRACT.py'
+    returned = run_subrepo_script.main(subrepo_dir, scriptfile)
+    print(returned)
