@@ -31,8 +31,20 @@ if choice == options[2]: #IMU
     returned = run_subrepo_script.main(subrepo_dir, scriptfile)
     print(returned)
 
-else: #not coded yet
-    subrepo_dir = 'imuextract'
-    scriptfile = 'FORMAT_STREAM.py'
+
+elif choice == options[0]: #MPIPE
+    subrepo_dir = 'mpipe'
+    scriptfile = 'MPIPE.py'
     returned = run_subrepo_script.main(subrepo_dir, scriptfile)
     print(returned)
+
+elif choice == options[1]: #AUDIO
+    subrepo_dir = 'extraudio'
+    scriptfile = 'EXTRAUDIO.py'
+    returned = run_subrepo_script.main(subrepo_dir, scriptfile)
+    print(returned)
+
+subrepo_dir = 'prepcsv' 
+scriptfile = 'PREPCSV.py'
+returned = run_subrepo_script.main(subrepo_dir, scriptfile)
+print(returned)
