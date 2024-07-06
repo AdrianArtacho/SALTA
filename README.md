@@ -1,3 +1,5 @@
 # SALTA App
 
-This repository contains the frontend of the SALTA App, for segmentation of performance data.
+This repository contains the frontend of the SALTA App: Segmentation and Aggregated Learning for Temporal Analysis.
+
+---
