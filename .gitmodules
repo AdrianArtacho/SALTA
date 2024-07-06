@@ -88,3 +88,6 @@
 [submodule "pyt"]
 	path = pyt
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/pyt_abstractions.git
+[submodule "SALTA-App"]
+	path = SALTA-App
+	url = https://github.com/AdrianArtacho/SALTA.git
