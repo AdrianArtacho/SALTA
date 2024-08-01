@@ -64,3 +64,6 @@ pickled_annotations.csv
 # Data folder?
 !data/gesturetest.csv
 data/
+
+# pickled annotations
+pickled_annotations.csv
