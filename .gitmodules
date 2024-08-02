@@ -91,3 +91,6 @@
 [submodule "SALTA-App"]
 	path = SALTA-App
 	url = https://github.com/AdrianArtacho/SALTA.git
+[submodule "reverse"]
+	path = reverse
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/reverse.git
