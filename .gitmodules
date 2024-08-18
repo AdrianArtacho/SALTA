@@ -94,3 +94,6 @@
 [submodule "reverse"]
 	path = reverse
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/reverse.git
+[submodule "segtree"]
+	path = segtree
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segtree.git
