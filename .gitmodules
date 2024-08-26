@@ -97,3 +97,6 @@
 [submodule "segtree"]
 	path = segtree
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segtree.git
+[submodule "lightinfo"]
+	path = lightinfo
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/lightinfo.git
