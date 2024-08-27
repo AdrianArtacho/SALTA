@@ -100,3 +100,6 @@
 [submodule "lightinfo"]
 	path = lightinfo
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/lightinfo.git
+[submodule "hypertext"]
+	path = hypertext
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/hypertext.git
