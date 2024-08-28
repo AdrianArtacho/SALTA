@@ -103,3 +103,6 @@
 [submodule "hypertext"]
 	path = hypertext
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/hypertext.git
+[submodule "MotionSegmentation"]
+	path = MotionSegmentation
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/motionsegmentation.git
