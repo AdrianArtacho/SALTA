@@ -510,7 +510,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Create the range slider
         const exportButton = document.createElement("button");
-        exportButton.textContent = 'Export Data';
+        exportButton.textContent = 'Export Segmentation';
         exportButton.className = 'btn-default';
         exportButton.style.width = "100%";
 
@@ -520,27 +520,51 @@ document.addEventListener("DOMContentLoaded", function () {
         exportButton.addEventListener("click", exportData);
     };
 
-    function exportData() {
-        var scaledData = JSON.parse(sessionStorage.getItem('scaledData'));
-        var data = JSON.parse(sessionStorage.getItem('selectedData'));
+    // function exportData() {
+    //     var scaledData = JSON.parse(sessionStorage.getItem('scaledData'));
+    //     var data = JSON.parse(sessionStorage.getItem('selectedData'));
 
+    //     let combinedData = {
+    //         data: data,
+    //         scaledData: scaledData
+    //     }
+
+    //     var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(combinedData));
+
+    //     var downloadAnchorNode = document.createElement('a');
+    //     downloadAnchorNode.setAttribute("href", dataStr);
+    //     downloadAnchorNode.setAttribute("download", "data.json"); // Choose the file name and extension
+    //     document.body.appendChild(downloadAnchorNode); // Required for Firefox
+
+    //     // Trigger the download
+    //     downloadAnchorNode.click();
+    //     downloadAnchorNode.remove();
+
+    // };
+
+    function exportData() {
+        const scaledData = JSON.parse(sessionStorage.getItem('scaledData'));
+        const data = JSON.parse(sessionStorage.getItem('selectedData'));
+        const peaksData = JSON.parse(sessionStorage.getItem('peaksData')); // Retrieve the peaks data (indexes array)
+    
         let combinedData = {
             data: data,
-            scaledData: scaledData
-        }
-
-        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(combinedData));
-
-        var downloadAnchorNode = document.createElement('a');
+            scaledData: scaledData,
+            peaks: peaksData // Include the peaks data in the export
+        };
+    
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(combinedData));
+    
+        const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "data.json"); // Choose the file name and extension
         document.body.appendChild(downloadAnchorNode); // Required for Firefox
-
+    
         // Trigger the download
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
-
     };
+    
 
     textButton.addEventListener("click", function () {
         const textInput = document.getElementById("textInput");
