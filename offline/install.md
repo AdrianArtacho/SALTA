@@ -18,17 +18,17 @@
    ```shell
    npm install -g http-server
    # sudo npm install -g http-server
-
+   
    npm install -g live-server
    # sudo npm install -g live-server
    ```
 
 4. Navigate to your project’s root directory and Start the server:
-
+   
    ```shell
    # Go to root directory
    cd path/to/your/repo
-
+   
    # Start server
    http-server
    ```
