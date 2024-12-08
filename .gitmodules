@@ -109,3 +109,6 @@
 [submodule "ssm"]
 	path = ssm
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/ssm.git
+[submodule "geo"]
+	path = geo
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/geo.git
