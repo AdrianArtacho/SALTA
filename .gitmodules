@@ -112,3 +112,6 @@
 [submodule "geo"]
 	path = geo
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/geo.git
+[submodule "motseg"]
+	path = motseg
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/motseg.git
