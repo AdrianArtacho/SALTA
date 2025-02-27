@@ -115,3 +115,6 @@
 [submodule "motseg"]
 	path = motseg
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/motseg.git
+[submodule "params"]
+	path = params
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/params.git
