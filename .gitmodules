@@ -118,3 +118,6 @@
 [submodule "params"]
 	path = params
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/params.git
+[submodule "segmJSON"]
+	path = segmJSON
+	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segmjson.git
