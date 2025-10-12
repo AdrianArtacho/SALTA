@@ -81,7 +81,8 @@
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/uinterpreter.git
 [submodule "mpipe"]
 	path = mpipe
-url=https://github.com/AdrianArtacho/salta_MPIPE
+	url=https://github.com/AdrianArtacho/salta_MPIPE
+	branch = main
 [submodule "gui"]
 	path = gui
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/gui_abstractions.git
