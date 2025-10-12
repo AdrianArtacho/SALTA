@@ -85,7 +85,7 @@ url=https://github.com/AdrianArtacho/salta_EXTRAUDIO.git
 	branch = main
 [submodule "gui"]
 	path = gui
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/gui_abstractions.git
+url=https://github.com/AdrianArtacho/salta_gui.git
 [submodule "pyt"]
 	path = pyt
 url=https://github.com/AdrianArtacho/salta_pyt.git
