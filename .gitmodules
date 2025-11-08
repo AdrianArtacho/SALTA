@@ -91,7 +91,7 @@ url=https://github.com/AdrianArtacho/salta_gui.git
 url=https://github.com/AdrianArtacho/salta_pyt.git
 [submodule "reverse"]
 	path = reverse
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/reverse.git
+url=https://github.com/AdrianArtacho/salta_REVERSE.git
 [submodule "segtree"]
 	path = segtree
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segtree.git
