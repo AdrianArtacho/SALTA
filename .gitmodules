@@ -45,7 +45,7 @@ url=https://github.com/AdrianArtacho/salta_EXTRAUDIO.git
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/notation.git
 [submodule "imuextract"]
 	path = IMUEXTRACT
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/imuextract.git
+url=https://github.com/AdrianArtacho/salta_IMUEXTRACT.git
 [submodule "multipipe"]
 	path = multipipe
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/multipipe.git
