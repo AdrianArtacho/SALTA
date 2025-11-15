@@ -31,9 +31,6 @@ url=https://github.com/AdrianArtacho/salta_IMUEXTRACT.git
 [submodule "isolate_subject"]
 	path = ISOLATE
 url=https://github.com/AdrianArtacho/salta_ISOLATE.git
-[submodule "nd-simplex"]
-	path = nd-simplex
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/nd-simplex.git
 [submodule "slicefeatures"]
 	path = SLICEFEATURES
 	url = https://github.com/AdrianArtacho/salta_SLICEFEATURES.git
