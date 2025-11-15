@@ -55,9 +55,6 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 [submodule "matlab-api"]
 	path = matlab-api
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/matlab-api.git
-[submodule "confidence"]
-	path = confidence
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/confidence.git
 [submodule "featurestructure"]
 	path = featurestructure
 url=https://github.com/AdrianArtacho/salta_FEATURESTRUCTURE.git
