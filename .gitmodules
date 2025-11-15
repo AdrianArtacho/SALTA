@@ -111,7 +111,7 @@ url=https://github.com/AdrianArtacho/salta_REVERSE.git
 	path = geo
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/geo.git
 [submodule "motseg"]
-	path = motseg
+	path = MOTSEG
 url=https://github.com/AdrianArtacho/salta_MOTSEG.git
 [submodule "params"]
 	path = params
