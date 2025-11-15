@@ -13,9 +13,6 @@
 [submodule "comparesegments"]
 	path = COMPARESEGMENTS
 url=https://github.com/AdrianArtacho/salta_comparesegments.git
-[submodule "correlation"]
-	path = correlation
-url=https://github.com/AdrianArtacho/salta_correlation.git
 [submodule "emotouch"]
 	path = emotouch
 url=https://github.com/AdrianArtacho/salta_emotouch.git
