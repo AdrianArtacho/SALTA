@@ -80,7 +80,7 @@ url=https://github.com/AdrianArtacho/salta_EXTRAUDIO.git
 	path = uinterpreter
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/uinterpreter.git
 [submodule "mpipe"]
-	path = mpipe
+	path = MPIPE
 	url=https://github.com/AdrianArtacho/salta_MPIPE
 	branch = main
 [submodule "gui"]
