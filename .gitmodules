@@ -74,9 +74,6 @@ url=https://github.com/AdrianArtacho/salta_pyt.git
 [submodule "lightinfo"]
 	path = lightinfo
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/lightinfo.git
-[submodule "hypertext"]
-	path = hypertext
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/hypertext.git
 [submodule "MotionSegmentation"]
 	path = MotionSegmentation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/motionsegmentation.git
