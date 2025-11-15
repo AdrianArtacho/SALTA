@@ -83,9 +83,6 @@ url=https://github.com/AdrianArtacho/salta_pyt.git
 [submodule "ssm"]
 	path = ssm
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/ssm.git
-[submodule "geo"]
-	path = geo
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/geo.git
 [submodule "motseg"]
 	path = MOTSEG
 url=https://github.com/AdrianArtacho/salta_MOTSEG.git
