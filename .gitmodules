@@ -7,9 +7,6 @@
 [submodule "documentation"]
 	path = docs
 	url = https://github.com/AdrianArtacho/salta_docs.git
-[submodule "audioss"]
-	path = audioss
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/audioss.git
 [submodule "prepcsv"]
 	path = PREPCSV
 	url = https://github.com/AdrianArtacho/salta_PREPCSV.git
