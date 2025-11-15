@@ -75,7 +75,7 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/featurestructure.git
 [submodule "plotly"]
 	path = plotly
-url=https://github.com/AdrianArtacho/salta_plotly.git
+url=https://github.com/AdrianArtacho/salta_PLOTLY.git
 [submodule "uinterpreter"]
 	path = uinterpreter
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/uinterpreter.git
