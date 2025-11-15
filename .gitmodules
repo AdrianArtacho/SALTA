@@ -51,7 +51,7 @@ url=https://github.com/AdrianArtacho/salta_IMUEXTRACT.git
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/multipipe.git
 [submodule "isolate_subject"]
 	path = isolate_subject
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/isolate_subject.git
+url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 [submodule "nd-simplex"]
 	path = nd-simplex
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/nd-simplex.git
