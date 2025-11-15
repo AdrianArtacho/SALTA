@@ -1,6 +1,3 @@
-[submodule "parseannotations"]
-	path = parseannotations
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/parseannotations.git
 [submodule "documentation"]
 	path = docs
 	url = https://github.com/AdrianArtacho/salta_docs.git
