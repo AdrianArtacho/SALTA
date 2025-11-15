@@ -59,8 +59,8 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 	path = cleandata
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/cleandata.git
 [submodule "slicefeatures"]
-	path = slicefeatures
-url=https://github.com/AdrianArtacho/salta_SLICEFEATURES.git
+	path = SLICEFEATURES
+	url = https://github.com/AdrianArtacho/salta_SLICEFEATURES.git
 [submodule "matlab-api"]
 	path = matlab-api
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/matlab-api.git
