@@ -7,9 +7,6 @@
 [submodule "comparesegments"]
 	path = COMPARESEGMENTS
 url=https://github.com/AdrianArtacho/salta_comparesegments.git
-[submodule "py2tmm"]
-	path = py2tmm
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/py2tmm.git
 [submodule "tmm2python"]
 	path = tmm2python
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/tmm2python.git
