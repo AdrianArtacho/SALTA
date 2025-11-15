@@ -61,9 +61,6 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 [submodule "confidence"]
 	path = confidence
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/confidence.git
-[submodule "clustering"]
-	path = clustering
-	url = https://AdrianArtacho@bitbucket.org/augmentedperformer/clustering.git
 [submodule "featurestructure"]
 	path = featurestructure
 url=https://github.com/AdrianArtacho/salta_FEATURESTRUCTURE.git
