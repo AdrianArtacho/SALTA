@@ -47,9 +47,6 @@ url=https://github.com/AdrianArtacho/salta_pyt.git
 [submodule "reverse"]
 	path = REVERSE
 	url = https://github.com/AdrianArtacho/salta_REVERSE.git
-[submodule "segtree"]
-	path = segtree
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segtree.git
 [submodule "ssm"]
 	path = ssm
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/ssm.git
