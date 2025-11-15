@@ -72,7 +72,7 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 	url = https://AdrianArtacho@bitbucket.org/augmentedperformer/clustering.git
 [submodule "featurestructure"]
 	path = featurestructure
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/featurestructure.git
+url=https://github.com/AdrianArtacho/salta_FEATURESTRUCTURE.git
 [submodule "plotly"]
 	path = PLOTLY
 	url = https://github.com/AdrianArtacho/salta_PLOTLY.git
