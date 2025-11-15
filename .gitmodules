@@ -52,9 +52,6 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 [submodule "nd-simplex"]
 	path = nd-simplex
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/nd-simplex.git
-[submodule "cleandata"]
-	path = cleandata
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/cleandata.git
 [submodule "slicefeatures"]
 	path = SLICEFEATURES
 	url = https://github.com/AdrianArtacho/salta_SLICEFEATURES.git
