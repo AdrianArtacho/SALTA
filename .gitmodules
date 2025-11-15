@@ -35,7 +35,7 @@
 	path = tmm2python
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/tmm2python.git
 [submodule "extraudio"]
-	path = extraudio
+	path = EXTRAUDIO
 url=https://github.com/AdrianArtacho/salta_EXTRAUDIO.git
 [submodule "public_salta"]
 	path = public_salta
