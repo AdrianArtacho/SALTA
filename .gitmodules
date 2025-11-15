@@ -11,8 +11,8 @@
 	path = audioss
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/audioss.git
 [submodule "prepcsv"]
-	path = prepcsv
-url=https://github.com/AdrianArtacho/salta_PREPCSV.git
+	path = PREPCSV
+	url = https://github.com/AdrianArtacho/salta_PREPCSV.git
 [submodule "comparesegments"]
 	path = COMPARESEGMENTS
 url=https://github.com/AdrianArtacho/salta_comparesegments.git
