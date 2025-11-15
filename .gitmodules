@@ -5,8 +5,8 @@
 	path = frontend
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/frontend.git
 [submodule "documentation"]
-	path = documentation
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/readme_files.git
+	path = docs
+	url = https://github.com/AdrianArtacho/salta_docs.git
 [submodule "audioss"]
 	path = audioss
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/audioss.git
@@ -15,7 +15,7 @@
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/prepcsv.git
 [submodule "comparesegments"]
 	path = comparesegments
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/comparesegments.git
+url=https://github.com/AdrianArtacho/salta_comparesegments.git
 [submodule "correlation"]
 	path = correlation
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/correlation.git
