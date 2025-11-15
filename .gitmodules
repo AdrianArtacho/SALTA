@@ -14,7 +14,7 @@
 	path = prepcsv
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/prepcsv.git
 [submodule "comparesegments"]
-	path = comparesegments
+	path = COMPARESEGMENTS
 url=https://github.com/AdrianArtacho/salta_comparesegments.git
 [submodule "correlation"]
 	path = correlation
