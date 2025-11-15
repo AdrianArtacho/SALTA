@@ -43,9 +43,6 @@ url=https://github.com/AdrianArtacho/salta_ISOLATE.git
 [submodule "slicefeatures"]
 	path = SLICEFEATURES
 	url = https://github.com/AdrianArtacho/salta_SLICEFEATURES.git
-[submodule "matlab-api"]
-	path = matlab-api
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/matlab-api.git
 [submodule "featurestructure"]
 	path = FEATURESTRUCTURE
 	url = https://github.com/AdrianArtacho/salta_FEATURESTRUCTURE.git
