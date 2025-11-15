@@ -67,7 +67,7 @@ url=https://github.com/AdrianArtacho/salta_pyt.git
 url=https://github.com/AdrianArtacho/salta_MOTSEG.git
 [submodule "params"]
 	path = params
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/params.git
+url=https://github.com/AdrianArtacho/salta_params.git
 [submodule "segmJSON"]
 	path = segmJSON
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segmjson.git
