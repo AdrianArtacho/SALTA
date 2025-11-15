@@ -78,7 +78,7 @@ url=https://github.com/AdrianArtacho/salta_FEATURESTRUCTURE.git
 	url = https://github.com/AdrianArtacho/salta_PLOTLY.git
 [submodule "uinterpreter"]
 	path = uinterpreter
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/uinterpreter.git
+url=https://github.com/AdrianArtacho/salta_UINTERPRETER.git
 [submodule "mpipe"]
 	path = MPIPE
 	url=https://github.com/AdrianArtacho/salta_MPIPE
