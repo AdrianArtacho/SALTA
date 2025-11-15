@@ -68,9 +68,6 @@ url=https://github.com/AdrianArtacho/salta_pyt.git
 [submodule "segtree"]
 	path = segtree
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/segtree.git
-[submodule "MotionSegmentation"]
-	path = MotionSegmentation
-	url = https://AdrianArtacho@bitbucket.org/smoothspaces/motionsegmentation.git
 [submodule "ssm"]
 	path = ssm
 	url = https://AdrianArtacho@bitbucket.org/smoothspaces/ssm.git
