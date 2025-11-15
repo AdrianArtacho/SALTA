@@ -90,7 +90,7 @@ url=https://github.com/AdrianArtacho/salta_gui.git
 	path = pyt
 url=https://github.com/AdrianArtacho/salta_pyt.git
 [submodule "reverse"]
-	path = reverse
+	path = REVERSE
 url=https://github.com/AdrianArtacho/salta_REVERSE.git
 [submodule "segtree"]
 	path = segtree
