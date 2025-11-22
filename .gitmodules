@@ -50,3 +50,6 @@ url=https://github.com/AdrianArtacho/salta_MOTSEG.git
 [submodule "params"]
 	path = params
 url=https://github.com/AdrianArtacho/salta_params.git
+[submodule "legacy"]
+	path = legacy
+	url = https://github.com/AdrianArtacho/salta_legacy.git
