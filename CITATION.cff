@@ -1,19 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the following metadata."
 title: "SALTA pipeline"
-version: "1.2"               
-date-released: "2025-11-22"         
+version: "1.2"
+date-released: "2025-11-22"
 authors:
-  - family-names: [Artacho]
-    given-names: [Adrián]
-    affiliation: [University of Music and Performing Arts Vienna]
+  - family-names: "Artacho"
+    given-names: "Adrián"
+    affiliation: "University of Music and Performing Arts Vienna"
     orcid: "0000-0002-0849-0580"
-license: "CC-BY-4.0"               
+license: "CC-BY-4.0"
 repository-code: "https://github.com/AdrianArtacho/SALTA"
 doi: "10.5281/zenodo.17379378"
 url: "https://doi.org/10.5281/zenodo.17379378"
-abstract: |
-  Code repository for the SALTA pipeline
+abstract: >
+  Code repository for the SALTA pipeline.
 keywords:
   - distributed performance
   - live electronics
